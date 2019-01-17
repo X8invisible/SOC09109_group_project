@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - BlockLayer
   - 
   - 
   - 
@@ -43,6 +44,12 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 3736286657
+    locked: 0
+  - name: Floor
+    uniqueID: 119350923
+    locked: 0
+  - name: Objects
+    uniqueID: 1144205251
     locked: 0
   - name: Car
     uniqueID: 2094520555
