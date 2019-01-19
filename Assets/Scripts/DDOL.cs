@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class DDOL : MonoBehaviour
 {
     public void Awake()
@@ -12,6 +12,7 @@ public class DDOL : MonoBehaviour
          * setting values. That's why this is here.
          */
         DontDestroyOnLoad(gameObject);
+        SceneManager.LoadScene("MainMenu");
         //Debug.Log("DDOL " + gameObject.name);
     }
 }
