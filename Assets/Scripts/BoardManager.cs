@@ -20,8 +20,8 @@ public class BoardManager : MonoBehaviour
         }
     }
     //dimensions of the game board
-    public int columns = 16;
-    public int rows = 16;
+    public int columns;
+    public int rows;
 
     //how many trees do we want in a level
     public Count treeCount = new Count(5, 10);
