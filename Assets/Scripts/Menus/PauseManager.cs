@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenuManager : MonoBehaviour
+public class PauseManager : MonoBehaviour
 {
 	//global variable required to see if the game is paused(might be needed in future for other mechanics except pausing time)
 	public static bool gameIsPaused = false;
