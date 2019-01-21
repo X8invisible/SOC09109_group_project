@@ -8,9 +8,9 @@ public class PlayerController : MonoBehaviour
     public float MaxSpeed = 7.0f;
     public float MaxSteer = 2.0f;
     public float Breaks = 0.2f;
-    
 
-    // PRIVATE VARIABLES 
+
+    // PRIVATE VARIABLES
     [SerializeField]  // force unity to also serialize private fields and not only public
     float Acceleration = 0.0f;
     float Steer = 0.0f;
@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // is called x amount of times per frame, so physics won't be applied every frame and will be smoother
@@ -29,18 +29,18 @@ public class PlayerController : MonoBehaviour
     {
 
         if (Input.GetKey(KeyCode.UpArrow)) //Accelerate forwards
-            Accel(1);    
+            Accel(1);
 
         else if (Input.GetKey(KeyCode.DownArrow)) //Accelerate backwards
-            Accel(-1);   
-        
+            Accel(-1);
+
         else
         {
             if (AccelFwd)  //Applies breaks slowly if no key is pressed while in forward direction
-                StopAccel(1, 0.1f);     
-            
+                StopAccel(1, 0.1f);
+
             else if (AccelBwd)    //Applies breaks slowly if no key is pressed while in backward direction
-                StopAccel(-1, 0.1f);     
+                StopAccel(-1, 0.1f);
         }
 
     }
@@ -56,11 +56,11 @@ public class PlayerController : MonoBehaviour
                 Acceleration += 0.05f;
 
             if (Input.GetKey(KeyCode.LeftArrow))   // rotate to the left
-                transform.Rotate(Vector3.forward * Steer);              
+                transform.Rotate(Vector3.forward * Steer);
 
             if (Input.GetKey(KeyCode.RightArrow))  // rotate to the right
-                transform.Rotate(Vector3.back * Steer);	
-            
+                transform.Rotate(Vector3.back * Steer);
+
         }
         else if (Direction == -1) // backwards
         {
@@ -77,13 +77,13 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (Steer <= MaxSteer) 
+        if (Steer <= MaxSteer)
             Steer += 0.01f;
 
         // Move the transform of the car in the direction and distance of translation.
         transform.Translate(Vector2.up * Acceleration * Time.deltaTime);
         // vector2.up = vector(0,1) = move up
-        
+
     }
 
     // stop acceleration of car
@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Direction == 1)  // stop accelerating forwards
         {
-            if (Acceleration >= 0.0f) 
+            if (Acceleration >= 0.0f)
             {
                 Acceleration -= BreakingFactor;
 
@@ -122,6 +122,15 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(Vector2.up * Acceleration * Time.deltaTime);
 
+    }
+
+    // Detects contact between the car and fuel objects
+    void OnTriggerEnter2D(Collider2D other)
+    {
+      if (other.gameObject.CompareTag("Fuel"))
+      {
+        other.gameObject.SetActive(false);
+      }
     }
 
 }

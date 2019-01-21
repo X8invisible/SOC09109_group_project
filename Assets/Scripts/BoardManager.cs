@@ -20,16 +20,22 @@ public class BoardManager : MonoBehaviour
         }
     }
     //dimensions of the game board
-    public int columns =16;
+    public int columns = 16;
     public int rows = 16;
 
     //how many trees do we want in a level
     public Count treeCount = new Count(5, 10);
+    // how many items we want in a level
+    public Count itemCount = new Count(1, 5);
+
 
     //for storing multiple game objects of same type
     public GameObject[] floorTiles;
     public GameObject[] treeTiles;
     public GameObject[] outerWallTiles;
+    // this is what i am working on (for item pickup)
+    public GameObject[] itemTiles;
+
 
     //used to store all the objects spawned to keep it clean
     private Transform boardHolder;
@@ -92,7 +98,7 @@ public class BoardManager : MonoBehaviour
 
         }
     }
-    
+
 
     //actually sets up the scene, more things can be added later
     public void SetupScene(int level)
@@ -100,5 +106,8 @@ public class BoardManager : MonoBehaviour
         BoardSetup();
         InitialiseList();
         LayoutObjectAtRandom(treeTiles, treeCount.minimum, treeCount.maximum);
+
+        LayoutObjectAtRandom(itemTiles, itemCount.minimum, itemCount.maximum);
+
     }
 }

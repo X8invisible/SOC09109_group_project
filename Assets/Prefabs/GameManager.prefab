@@ -62,6 +62,9 @@ MonoBehaviour:
   treeCount:
     minimum: 8
     maximum: 15
+  itemCount:
+    minimum: 1
+    maximum: 5
   floorTiles:
   - {fileID: 3556942624783886928, guid: 55c3a33811f46af49b33886d35f35e7b, type: 3}
   - {fileID: 1736256676, guid: 57e56cd9089e2954786a922a131fa772, type: 3}
@@ -70,3 +73,5 @@ MonoBehaviour:
   - {fileID: 218589130219326118, guid: 2e4a7e3fbf919e74fad0458197da030d, type: 3}
   outerWallTiles:
   - {fileID: 218589130219326118, guid: 2e4a7e3fbf919e74fad0458197da030d, type: 3}
+  itemTiles:
+  - {fileID: 218589130219326118, guid: 289f98c44478949a0b941c18b35b0ead, type: 3}
