@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8072341745965047117}
   - component: {fileID: 5093436480941235767}
   - component: {fileID: 74177950350400235}
+  - component: {fileID: 2635234341836927929}
   m_Layer: 8
   m_Name: Tree01
   m_TagString: Obstacle
@@ -87,7 +88,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218589130219326118}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -106,3 +107,40 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.48, y: 0.64}
   m_EdgeRadius: 0
+--- !u!60 &2635234341836927929
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218589130219326118}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.45, y: 0.64}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.225, y: 0.16}
+      - {x: 0.205, y: 0.22}
+      - {x: 0.155, y: 0.32}
+      - {x: -0.145, y: 0.32}
+      - {x: -0.225, y: 0.22999999}
+      - {x: -0.225, y: -0.11}
+      - {x: -0.16499999, y: -0.21}
+      - {x: -0.195, y: -0.24}
+      - {x: -0.205, y: -0.29999998}
+      - {x: -0.195, y: -0.32}
+      - {x: 0.175, y: -0.32}
+      - {x: 0.225, y: -0.25}
