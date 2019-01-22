@@ -28,11 +28,20 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
 
-        if (Input.GetKey(KeyCode.UpArrow)) //Accelerate forwards
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey("w")) //Accelerate forwards
             Accel(1);
 
-        else if (Input.GetKey(KeyCode.DownArrow)) //Accelerate backwards
+        else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey("s")) //Accelerate backwards
             Accel(-1);
+
+        else if (Input.GetKey(KeyCode.Space))  // Breaks
+        {
+            if (AccelFwd)
+                StopAccel(1, Breaks);   // Breaks while in forward direction
+
+            else if (AccelBwd)
+                StopAccel(-1, Breaks);   // Breaks while in backward direction
+        }
 
         else
         {
@@ -55,10 +64,10 @@ public class PlayerController : MonoBehaviour
             if (Acceleration <= MaxSpeed) // if acceleration hasn't reached the maximum speed, keep accelerating
                 Acceleration += 0.05f;
 
-            if (Input.GetKey(KeyCode.LeftArrow))   // rotate to the left
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))   // rotate to the left
                 transform.Rotate(Vector3.forward * Steer);
 
-            if (Input.GetKey(KeyCode.RightArrow))  // rotate to the right
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))  // rotate to the right
                 transform.Rotate(Vector3.back * Steer);
 
         }
@@ -69,10 +78,10 @@ public class PlayerController : MonoBehaviour
             if ((-1 * MaxSpeed) <= Acceleration) // MinSpeed is MaxSpeed * -1 so they are symmetrical
                 Acceleration -= 0.05f;   // keep decelerating if MinSpeed hasn't been reached
 
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))
                 transform.Rotate(Vector3.back * Steer);
 
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
                 transform.Rotate(Vector3.forward * Steer);
 
         }
@@ -95,9 +104,9 @@ public class PlayerController : MonoBehaviour
             {
                 Acceleration -= BreakingFactor;
 
-                if (Input.GetKey(KeyCode.LeftArrow))
+                if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))
                     transform.Rotate(Vector3.forward * Steer);
-                if (Input.GetKey(KeyCode.RightArrow))
+                if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
                     transform.Rotate(Vector3.back * Steer);
             }
             else
@@ -109,9 +118,9 @@ public class PlayerController : MonoBehaviour
             {
                 Acceleration += BreakingFactor;
 
-                if (Input.GetKey(KeyCode.LeftArrow))
+                if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))
                     transform.Rotate(Vector3.back * Steer);
-                if (Input.GetKey(KeyCode.RightArrow))
+                if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
                     transform.Rotate(Vector3.forward * Steer);
             }
             else
