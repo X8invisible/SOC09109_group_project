@@ -17,10 +17,18 @@ public class PlayerController : MonoBehaviour
 
     bool AccelFwd, AccelBwd;
 
+    Vehicle car = new Car();
+
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("hit");
+        Debug.Log("------START-------");
+
+        car.MaxSpeed = 7.0f;
+        Debug.Log(car.MaxSpeed);
+
+        car.Accelerate();
+        
     }
 
     // is called x amount of times per frame, so physics won't be applied every frame and will be smoother
@@ -122,7 +130,7 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector2.up * Acceleration * Time.deltaTime);
 
     }
-
+    
     // SONAS
     // Detects contact between the car and fuel objects
     void OnTriggerEnter2D(Collider2D other)

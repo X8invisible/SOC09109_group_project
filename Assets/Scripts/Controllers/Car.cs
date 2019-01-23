@@ -2,33 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * 
+ * MARIA
+ * 
+ */
+
 public class Car : Vehicle
 {
-    
+
+    public override void Accelerate()
+    {
+        Debug.Log("Accelerate from Car.cs");
+    }
+
+    public override void StopAcc()
+    {
+        Debug.Log("StopAcc from Car.cs");
+    }
+
+
+    /*
     // Start is called before the first frame update
     void Start()
     {
+        
         base.MaxSpeed = 7.0f;
         base.MaxSteer = 2.0f;
         base.Breaks = 0.2f;
         base.Acceleration = 0.0f;
         base.Steer = 0.0f;
-
+        
         Debug.Log("Car class Start");
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     
     public override void Accel(int Direction)
     {
 
 
-        /*
+        
 
 
         if (Direction == 1) // forwards
@@ -68,7 +82,7 @@ public class Car : Vehicle
         // vector2.up = vector(0,1) = move up
 
 
-        */
+        
 
 
     }
@@ -76,7 +90,7 @@ public class Car : Vehicle
     public override void StopAccel(int Direction, float BreakingFactor)
     {
 
-        /*
+        
 
 
 
@@ -115,12 +129,8 @@ public class Car : Vehicle
 
 
 
-        */
+        
 
-
-    }
-
-
-
-    
+    */
 }
+

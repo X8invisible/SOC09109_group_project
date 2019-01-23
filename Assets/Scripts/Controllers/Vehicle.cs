@@ -9,8 +9,22 @@ using UnityEngine;
  */
 
 // BASE CLASS FOR ALL VEHICLES
-public abstract class Vehicle
+public abstract class Vehicle : MonoBehaviour
 {
+    public Vehicle()
+    {
+        Debug.Log("Vehicle constructor called");
+    }
+
+    public float MaxSpeed { get; set; }
+
+
+    public abstract void Accelerate();
+
+    public abstract void StopAcc();
+
+
+    /*
 
     protected float _maxSpeed, _maxSteer, _breaks, _acceleration, _steer;
     protected bool _accelFwd, _accelBwd;
@@ -30,4 +44,6 @@ public abstract class Vehicle
         if (collision.gameObject.CompareTag("Obstacle"))
             Acceleration = 0.0f;
     }
+
+    */
 }
