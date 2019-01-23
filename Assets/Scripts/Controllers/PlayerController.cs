@@ -25,10 +25,13 @@ public class PlayerController : MonoBehaviour
         Debug.Log("------START-------");
 
         car.MaxSpeed = 7.0f;
-        Debug.Log(car.MaxSpeed);
-
-        car.Accelerate();
-        
+        car.MaxSteer = 2.0f;
+        car.Breaks = 0.2f;
+        car.Acceleration = 0.0f;
+        car.Steer = 0.0f;
+        Debug.Log("----1----");
+        car.Accelerate(1);
+        Debug.Log("----2----");
     }
 
     // is called x amount of times per frame, so physics won't be applied every frame and will be smoother
