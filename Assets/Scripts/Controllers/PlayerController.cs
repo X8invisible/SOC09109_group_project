@@ -1,16 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // PUBLIC VARIABLES - appear in unity and can drag and drop objects into them
     public float MaxSpeed = 7.0f;
     public float MaxSteer = 2.0f;
-    public float Breaks = 0.2f;
+    public float Brakes = 0.2f;
 
-
-    // PRIVATE VARIABLES
     [SerializeField]  // force unity to also serialize private fields and not only public
     float Acceleration = 0.0f;
     float Steer = 0.0f;
@@ -23,33 +18,42 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Debug.Log("------START-------");
-
         car.MaxSpeed = 7.0f;
         car.MaxSteer = 2.0f;
-        car.Breaks = 0.2f;
+        car.Brakes = 0.2f;
         car.Acceleration = 0.0f;
         car.Steer = 0.0f;
-        Debug.Log("----1----");
-        car.Accelerate(1);
-        Debug.Log("----2----");
     }
 
     // is called x amount of times per frame, so physics won't be applied every frame and will be smoother
     private void FixedUpdate()
     {
+        // Accelerate forwards
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey("w")){
+            Debug.Log("----before car.Accelerate in PC----");
+            car.Accelerate(1); // This used to be Accel(-1); and it would work, since the method is in the same script
+            // but now it is trying to read the method from Car.cs but I don't know how to move the car from there
+            Debug.Log("----after car.Accelerate in PC----");
+        }
+        // Accelerate backwards
+        else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey("s")) 
+            Accel(-1); // This works
+        // Brakes
+        else if (Input.GetKey(KeyCode.Space))
+        {
+            if (AccelFwd)
+                StopAccel(1, Brakes);   // Brakes while in forward direction
 
-        if (Input.GetKey(KeyCode.UpArrow)) //Accelerate forwards
-            Accel(1);
-
-        else if (Input.GetKey(KeyCode.DownArrow)) //Accelerate backwards
-            Accel(-1);
+            else if (AccelBwd)
+                StopAccel(-1, Brakes);   // Brakes while in backward direction
+        }
 
         else
         {
-            if (AccelFwd)  //Applies breaks slowly if no key is pressed while in forward direction
+            if (AccelFwd)  //Applies Brakes slowly if no key is pressed while in forward direction
                 StopAccel(1, 0.1f);
 
-            else if (AccelBwd)    //Applies breaks slowly if no key is pressed while in backward direction
+            else if (AccelBwd)    //Applies Brakes slowly if no key is pressed while in backward direction
                 StopAccel(-1, 0.1f);
         }
 
@@ -65,10 +69,10 @@ public class PlayerController : MonoBehaviour
             if (Acceleration <= MaxSpeed) // if acceleration hasn't reached the maximum speed, keep accelerating
                 Acceleration += 0.05f;
 
-            if (Input.GetKey(KeyCode.LeftArrow))   // rotate to the left
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))   // rotate to the left
                 transform.Rotate(Vector3.forward * Steer);
 
-            if (Input.GetKey(KeyCode.RightArrow))  // rotate to the right
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))  // rotate to the right
                 transform.Rotate(Vector3.back * Steer);
 
         }
@@ -79,10 +83,10 @@ public class PlayerController : MonoBehaviour
             if ((-1 * MaxSpeed) <= Acceleration) // MinSpeed is MaxSpeed * -1 so they are symmetrical
                 Acceleration -= 0.05f;   // keep decelerating if MinSpeed hasn't been reached
 
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))
                 transform.Rotate(Vector3.back * Steer);
 
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
                 transform.Rotate(Vector3.forward * Steer);
 
         }
@@ -92,7 +96,6 @@ public class PlayerController : MonoBehaviour
 
         // Move the transform of the car in the direction and distance of translation.
         transform.Translate(Vector2.up * Acceleration * Time.deltaTime);
-        // vector2.up = vector(0,1) = move up
 
     }
 
@@ -105,9 +108,9 @@ public class PlayerController : MonoBehaviour
             {
                 Acceleration -= BreakingFactor;
 
-                if (Input.GetKey(KeyCode.LeftArrow))
+                if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))
                     transform.Rotate(Vector3.forward * Steer);
-                if (Input.GetKey(KeyCode.RightArrow))
+                if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
                     transform.Rotate(Vector3.back * Steer);
             }
             else
@@ -119,9 +122,9 @@ public class PlayerController : MonoBehaviour
             {
                 Acceleration += BreakingFactor;
 
-                if (Input.GetKey(KeyCode.LeftArrow))
+                if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))
                     transform.Rotate(Vector3.back * Steer);
-                if (Input.GetKey(KeyCode.RightArrow))
+                if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
                     transform.Rotate(Vector3.forward * Steer);
             }
             else
