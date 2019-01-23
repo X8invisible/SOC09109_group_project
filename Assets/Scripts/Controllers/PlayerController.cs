@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Debug.Log("hit");
     }
 
     // is called x amount of times per frame, so physics won't be applied every frame and will be smoother
@@ -121,16 +121,26 @@ public class PlayerController : MonoBehaviour
             Steer -= 0.01f;
 
         transform.Translate(Vector2.up * Acceleration * Time.deltaTime);
-
+        
     }
 
     // Detects contact between the car and fuel objects
     void OnTriggerEnter2D(Collider2D other)
     {
-      if (other.gameObject.CompareTag("Fuel"))
-      {
-        other.gameObject.SetActive(false);
-      }
+        if (other.gameObject.CompareTag("Fuel"))
+        {
+            other.gameObject.SetActive(false);
+        }
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+
+        if (col.gameObject.CompareTag("Obstacle"))
+        {
+            Acceleration = 0.0f;
+        }
     }
 
 }
