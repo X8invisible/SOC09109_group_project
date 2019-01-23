@@ -9,10 +9,12 @@ public class Car : Vehicle
     void Start()
     {
         base.MaxSpeed = 7.0f;
-        base.Acceleration = 2.0f;
+        base.MaxSteer = 2.0f;
         base.Breaks = 0.2f;
         base.Acceleration = 0.0f;
         base.Steer = 0.0f;
+
+        Debug.Log("Car class Start");
         
     }
 
@@ -21,9 +23,14 @@ public class Car : Vehicle
     {
         
     }
-
+    
     public override void Accel(int Direction)
     {
+
+
+        /*
+
+
         if (Direction == 1) // forwards
         {
             AccelFwd = true;   // start acceleration
@@ -59,10 +66,61 @@ public class Car : Vehicle
         // Move the transform of the car in the direction and distance of translation.
         transform.Translate(Vector2.up * Acceleration * Time.deltaTime);
         // vector2.up = vector(0,1) = move up
+
+
+        */
+
+
     }
 
     public override void StopAccel(int Direction, float BreakingFactor)
     {
-        
+
+        /*
+
+
+
+        if (Direction == 1)  // stop accelerating forwards
+        {
+            if (Acceleration >= 0.0f)
+            {
+                Acceleration -= BreakingFactor;
+
+                if (Input.GetKey(KeyCode.LeftArrow))
+                    transform.Rotate(Vector3.forward * Steer);
+                if (Input.GetKey(KeyCode.RightArrow))
+                    transform.Rotate(Vector3.back * Steer);
+            }
+            else
+                AccelFwd = false;
+        }
+        else if (Direction == -1)  // stop accelerating backwards
+        {
+            if (Acceleration <= 0.0f)
+            {
+                Acceleration += BreakingFactor;
+
+                if (Input.GetKey(KeyCode.LeftArrow))
+                    transform.Rotate(Vector3.back * Steer);
+                if (Input.GetKey(KeyCode.RightArrow))
+                    transform.Rotate(Vector3.forward * Steer);
+            }
+            else
+                AccelBwd = false;
+        }
+        if (Steer >= 0.0f)
+            Steer -= 0.01f;
+
+        transform.Translate(Vector2.up * Acceleration * Time.deltaTime);
+
+
+
+        */
+
+
     }
+
+
+
+    
 }
