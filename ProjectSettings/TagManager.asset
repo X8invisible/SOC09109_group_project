@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fuel
   - Obstacle
+  - Car
   layers:
   - Default
   - TransparentFX

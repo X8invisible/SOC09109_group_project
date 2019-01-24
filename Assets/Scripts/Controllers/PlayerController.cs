@@ -2,6 +2,9 @@
 
 public class PlayerController : MonoBehaviour
 {
+
+    // public GameObject redcar = Transform.Find("Car");
+
     public float MaxSpeed = 7.0f;
     public float MaxSteer = 2.0f;
     public float Brakes = 0.2f;
@@ -12,12 +15,13 @@ public class PlayerController : MonoBehaviour
 
     bool AccelFwd, AccelBwd;
 
-    Vehicle car = new Car();
+    Vehicle car;
 
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("------START-------");
+        car = new Car(transform);
         car.MaxSpeed = 7.0f;
         car.MaxSteer = 2.0f;
         car.Brakes = 0.2f;
@@ -31,13 +35,12 @@ public class PlayerController : MonoBehaviour
         // Accelerate forwards
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey("w")){
             Debug.Log("----before car.Accelerate in PC----");
-            car.Accelerate(1); // This used to be Accel(-1); and it would work, since the method is in the same script
-            // but now it is trying to read the method from Car.cs but I don't know how to move the car from there
+            car.Accelerate(1); // This used to be Accel(-1); and it would work
             Debug.Log("----after car.Accelerate in PC----");
         }
         // Accelerate backwards
         else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey("s")) 
-            Accel(-1); // This works
+            car.Accelerate(-1); // This works
         // Brakes
         else if (Input.GetKey(KeyCode.Space))
         {
@@ -78,6 +81,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (Direction == -1) // backwards
         {
+
+
             AccelBwd = true;  // start acceleration backwards
 
             if ((-1 * MaxSpeed) <= Acceleration) // MinSpeed is MaxSpeed * -1 so they are symmetrical

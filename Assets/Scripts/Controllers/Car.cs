@@ -3,6 +3,15 @@
 public class Car : Vehicle
 {
     bool AccForward, AccelerateBackward;
+
+    private Transform transform;
+
+    public Car(Transform transform)
+    {
+        this.transform = transform;
+    }
+    
+
     
     public override void Accelerate(int Direction)
     {
@@ -19,7 +28,7 @@ public class Car : Vehicle
         if (Steer <= MaxSteer)
             Steer += 0.01f;
 
-        // transform what?? how can I connect the car that the player uses with this movement?
+       // transform what?? how can I connect the car that the player uses with this movement?
         transform.Translate(Vector2.up * Acceleration * Time.deltaTime);
 
         Debug.Log("----end of Accelerate in Car.cs----");
