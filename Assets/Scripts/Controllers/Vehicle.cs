@@ -13,10 +13,19 @@ public abstract class Vehicle : MonoBehaviour
 
     public abstract void Accelerate(int Direction);
 
-    public abstract void StopAcc(int Direction, float BreakinfFactor);
+    public abstract void StopAcc(int Direction, float BreakingFactor);
 
     public abstract void RotateLeft();
 
     public abstract void RotateRight();
+
+    // apply brakes slowly if no key is pressed
+    public abstract void BrakeSlowly();
+
+    // stop car from moving
+    public abstract void StopCarMotion();
+
+    // when the car collides with something
+    public abstract void Collision();
 
 }
