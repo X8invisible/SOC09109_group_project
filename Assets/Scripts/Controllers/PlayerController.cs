@@ -4,19 +4,6 @@ public class PlayerController : MonoBehaviour
 {
 
     // MARIA
-    // PUBLIC VARIABLES - appear in unity and can drag and drop objects into them
-    public float MaxSpeed = 7.0f;
-    public float MaxSteer = 2.0f;
-    public float Breaks = 0.2f;
-
-
-    // PRIVATE VARIABLES
-    [SerializeField]  // force unity to also serialize private fields and not only public
-    float Acceleration = 0.0f;
-    float Steer = 0.0f;
-
-    bool AccelFwd, AccelBwd;
-    bool SteerLeft, SteerRight;
 
     Car car;
 
@@ -33,7 +20,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey("w")) //Accelerate forwards
         {
             car.Accelerate(1);
-            
+
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))  // rotate to the right
                 car.RotateRight();
 
@@ -52,27 +39,14 @@ public class PlayerController : MonoBehaviour
                 car.RotateLeft();
         }
 
-        else if (Input.GetKey(KeyCode.Space))  // Breaks
-        {
-            if (AccelFwd)
-                car.StopAcc(1, Breaks);   // Breaks while in forward direction
+        else if (Input.GetKey(KeyCode.Space))  // Brakes
+            car.StopCarMotion();
 
-            else if (AccelBwd)
-                car.StopAcc(-1, Breaks);   // Breaks while in backward direction
-        }
-        else
-        {
-            if (AccelFwd)  //Applies breaks slowly if no key is pressed while in forward direction
-                car.StopAcc(1, 0.1f);
-
-            else if (AccelBwd)    //Applies breaks slowly if no key is pressed while in backward direction
-                car.StopAcc(-1, 0.1f);
-        }
+        else // if no button pressed, stop car
+            car.BrakeSlowly();
     }
 
     
-    
-
 
     // SONAS
     // Detects contact between the car and fuel objects
@@ -80,14 +54,13 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Fuel"))
             other.gameObject.SetActive(false);
-
     }
 
     // CAIO
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Obstacle"))
-            Acceleration = 0.0f;
+            car.Collision();
     }
 
 }
