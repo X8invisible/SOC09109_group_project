@@ -46,7 +46,6 @@ public class PlayerController : MonoBehaviour
             car.BrakeSlowly();
     }
 
-    
 
     // SONAS
     // Detects contact between the car and fuel objects

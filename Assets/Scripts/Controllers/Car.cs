@@ -14,6 +14,7 @@ public class Car : Vehicle
         this.Brakes = 0.2f;
         this.Acceleration = 0.0f;
         this.Steer = 0.0f;
+        this.Lives = 3;
     }
     
     public override void Accelerate(int Direction)
@@ -170,8 +171,21 @@ public class Car : Vehicle
 
         this.Acceleration = 0.0f;
 
+        if (CheckLives() == true)
+            this.Lives -= 1;
+        else
+            //end game
+
         Debug.Log("----end collision----");
     }
 
+    public override bool CheckLives()
+    {
+        if (this.Lives == 0) // if dead
+            return false;
+        else // if still has at least 1 life
+            return true;
+    }
+            
 }
 

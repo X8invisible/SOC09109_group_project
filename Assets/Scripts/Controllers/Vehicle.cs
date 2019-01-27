@@ -10,6 +10,7 @@ public abstract class Vehicle : MonoBehaviour
     public float Steer { get; set; }
     public bool AccelFwd { get; set; }
     public bool AccelBwd { get; set; }
+    public int Lives { get; set; }
 
     public abstract void Accelerate(int Direction);
 
@@ -27,5 +28,8 @@ public abstract class Vehicle : MonoBehaviour
 
     // when the car collides with something
     public abstract void Collision();
+
+    // when a car loses its 3 lives - end of game
+    public abstract bool CheckLives();
 
 }
