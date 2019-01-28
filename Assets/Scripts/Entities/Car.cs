@@ -4,8 +4,7 @@ using UnityEngine.UI;
 public class Car : Vehicle
 {
     bool AccForward, AccBackward, Left, Right = false;
-
-
+    
     // Used for fuel counter
     public float fuelCount;
 
@@ -217,23 +216,14 @@ public class Car : Vehicle
 
         // Debug.Log("Fuel count: " + FuelCount);
     }
-
-    public float FuelCount
-    {
-        get { return fuelCount; }
-        set { fuelCount = value; }
-    }
-
-
-    // SONAS
+    
     // Detects contact between the car and fuel objects
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Fuel"))
             other.gameObject.SetActive(false);
     }
-
-    // CAIO
+    
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Obstacle"))
