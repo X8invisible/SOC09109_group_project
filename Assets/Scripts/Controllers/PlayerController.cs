@@ -4,19 +4,30 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
-    // MARIA
-
-    Car car;
+   
     //Andrei
     //used for the HUD fuel representation
+    
     public Image fuelBar;
     public int minFuel;
     public int maxFuel;
+    
+
+    // For accessing the car game object so we can access it's components through the car script
+    public GameObject carGameObject;
+
+    // a script that is for testing purposes
+    public runPythonScript test;
+
+    // The car script that changes the car game object
+    private Car car;
+
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("------START-------");
-        car = new Car(transform);
+        car = carGameObject.GetComponent<Car>();
+        test = new runPythonScript();
     }
 
     // SONAS
@@ -25,6 +36,8 @@ public class PlayerController : MonoBehaviour
     {
         car.UpdateFuelCount(fuelBar,maxFuel, minFuel);
     }
+
+
     // is called x amount of times per frame, so physics won't be applied every frame and will be smoother
     private void FixedUpdate()
     {
@@ -32,45 +45,55 @@ public class PlayerController : MonoBehaviour
         {
             car.Accelerate(1);
 
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))  // rotate to the right
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
+            {  // rotate to the right
                 car.RotateRight();
-
-            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))   // rotate to the left
+            }
+            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))
+            {
+                // rotate to the left
                 car.RotateLeft();
+            }
         }
 
         else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey("s")) //Accelerate backwards
         {
             car.Accelerate(-1);
 
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))  // rotate to the right
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
+            {
+                // rotate to the right
                 car.RotateRight();
-
-            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))   // rotate to the left
+            }
+            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))
+            { // rotate to the left
                 car.RotateLeft();
+            }
         }
 
-        else if (Input.GetKey(KeyCode.Space))  // Brakes
+        else if (Input.GetKey(KeyCode.Space))
+        {
+            // Brakes
             car.StopCarMotion();
+        }
+        else
+        {
 
-        else // if no button pressed, stop car
+            //NEEDS TWEAKING
+            // if no button pressed, stop car
             car.BrakeSlowly();
+        }
+
+
+        //TESTING PURPOSES (DARWON PART)
+
+        //Testing style transfer script
+        if (Input.GetKey(KeyCode.P))
+        {
+            test.runPythonStyleTransfer();
+        }
     }
 
 
-    // SONAS
-    // Detects contact between the car and fuel objects
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Fuel"))
-            other.gameObject.SetActive(false);
-    }
-
-    // CAIO
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.CompareTag("Obstacle"))
-            car.Collision();
-    }
 
 }

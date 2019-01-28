@@ -5,21 +5,26 @@ public class Car : Vehicle
 {
     bool AccForward, AccBackward, Left, Right = false;
 
-    private Transform transform;
+ 
     // Used for fuel counter
     public float fuelCount;
 
-    public Car(Transform transform)
+    void Start()
     {
-        this.transform = transform; 
+        Debug.Log("Car start ");
+
+        this.MaxSpeed = 7.0f;
         this.MaxSpeed = 7.0f;
         this.MaxSteer = 2.0f;
         this.Brakes = 0.2f;
         this.Acceleration = 0.0f;
         this.Steer = 0.0f;
-        this.fuelCount = 25.0f;
+
+        this.Accelerate(10);
     }
     
+
+    // MOVEMENT LOGIC
     public override void Accelerate(int Direction)
     {
         // Debug.Log("----start Accelerate from Car.cs----");
@@ -167,16 +172,8 @@ public class Car : Vehicle
         Debug.Log("----end StopCarMotion----");
     }
 
-    // when the car collides with an object
-    public override void Collision()
-    {
-        Debug.Log("----start collision----");
 
-        this.Acceleration = 0.0f;
-
-        Debug.Log("----end collision----");
-    }
-
+    // FUEL LOGIC
     //SONAS and ANDREI
     public void UpdateFuelCount( Image fuelBar, int maxFuel, int minFuel)
     {
@@ -204,5 +201,36 @@ public class Car : Vehicle
         get { return fuelCount; }
         set { fuelCount = value; }
     }
+
+
+
+    //COLLISION LOGIC
+    // when the car collides with an object
+    public override void Collision()
+    {
+        Debug.Log("----start collision----");
+
+        this.Acceleration = 0.0f;
+
+        Debug.Log("----end collision----");
+    }
+
+
+    // SONAS
+    // Detects contact between the car and fuel objects
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Fuel"))
+            other.gameObject.SetActive(false);
+    }
+
+    // CAIO
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.CompareTag("Obstacle"))
+            this.Collision();
+    }
+
+    
 }
 

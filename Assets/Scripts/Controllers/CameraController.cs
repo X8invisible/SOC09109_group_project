@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     //PUBLIC VARIABLES - appear in unity and can drag and drop objects into them
-    public GameObject car;
+    public GameObject Car;
 
     //PRIVATE VARIABLES
     private Vector3 offset;
@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
     {
         // transform references the transform of the gameobject that this script is attached to
         // transform.position is the camera's since the script is attached to the camera
-        offset = transform.position - car.transform.position;
+        offset = transform.position - Car.transform.position;
     }
 
     // LateUpdate is called once per frame and guaranteed to run after all objects have been processed in update
@@ -23,6 +23,6 @@ public class CameraController : MonoBehaviour
     void LateUpdate()
     {
         // as player is moved, camera is also moved without spinning
-        transform.position = car.transform.position + offset;
+        transform.position = Car.transform.position + offset;
     }
 }
