@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -6,14 +7,25 @@ public class PlayerController : MonoBehaviour
     // MARIA
 
     Car car;
-
+    //Andrei
+    //used for the HUD fuel representation
+    public Image fuelBar;
+    public int minFuel;
+    public int maxFuel;
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("------START-------");
         car = new Car(transform);
+        Debug.Log("hit");
     }
 
+    // SONAS
+    // This is called once per frame
+    void Update()
+    {
+        car.UpdateFuelCount(fuelBar,maxFuel, minFuel);
+    }
     // is called x amount of times per frame, so physics won't be applied every frame and will be smoother
     private void FixedUpdate()
     {

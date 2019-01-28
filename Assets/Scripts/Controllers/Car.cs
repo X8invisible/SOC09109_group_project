@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class Car : Vehicle
 {
     bool AccForward, AccBackward, Left, Right = false;
 
     private Transform transform;
-    
+    // Used for fuel counter
+    public float fuelCount;
+
     public Car(Transform transform)
     {
-        this.transform = transform; 
+        this.transform = transform;
         this.MaxSpeed = 7.0f;
         this.MaxSteer = 2.0f;
         this.Brakes = 0.2f;
         this.Acceleration = 0.0f;
         this.Steer = 0.0f;
-        this.Lives = 3;
+        this.fuelCount = 25.0f;
     }
-    
+
     public override void Accelerate(int Direction)
     {
         // Debug.Log("----start Accelerate from Car.cs----");
@@ -40,7 +43,7 @@ public class Car : Vehicle
                 transform.Rotate(Vector3.back * Steer);
                 Right = false;
             }
-                
+
         }
         else if (Direction == -1)
         {
@@ -65,7 +68,7 @@ public class Car : Vehicle
 
         if (this.Steer <= this.MaxSteer)
             this.Steer += 0.01f;
-        
+
         transform.Translate(Vector2.up * Acceleration * Time.deltaTime);
 
         // Debug.Log("----end of Accelerate in Car.cs----");
@@ -128,7 +131,7 @@ public class Car : Vehicle
         Debug.Log("----RotateLeft----");
 
         Left = true;
-    } 
+    }
 
     public override void RotateRight()
     {
@@ -179,13 +182,31 @@ public class Car : Vehicle
         Debug.Log("----end collision----");
     }
 
-    public override bool CheckLives()
+    //SONAS and ANDREI
+    public void UpdateFuelCount( Image fuelBar, int maxFuel, int minFuel)
     {
-        if (this.Lives == 0) // if dead
-            return false;
-        else // if still has at least 1 life
-            return true;
-    }
-            
-}
+        float currentFuelPercentage;
+        // If there is acceleration, decrease fuel
+        if (AccForward == true)
+            FuelCount -= 0.01f * Acceleration;
+        if (AccBackward == true)
+            FuelCount -= 0.01f * Acceleration * -1;
 
+        currentFuelPercentage = FuelCount / (maxFuel - minFuel);
+        fuelBar.fillAmount = currentFuelPercentage;
+        /*if (fuelCount <= 0)
+      {
+        Acceleration *= 0;
+        Steer *= 0;
+      }*/
+
+        // this is to test to see if the fuel pick ups work
+        Debug.Log("Fuel count: " + FuelCount);
+    }
+
+    public float FuelCount
+    {
+        get { return fuelCount; }
+        set { fuelCount = value; }
+    }
+}
