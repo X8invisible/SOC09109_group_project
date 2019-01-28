@@ -142,7 +142,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e448bdd4b6bf814fb6642a027fea816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuelCount: 0
 --- !u!1 &269174019
 GameObject:
   m_ObjectHideFlags: 0
@@ -636,6 +635,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1964949093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3208111838179376435, guid: d32962e065f63c1488f4a595f50bf82a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2092857577}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1964949094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964949093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cbd5dbda672db64b87257895114b5d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2028724184 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9151851944906643238, guid: 2244298f97f839041bfc19fe0ec6c927,
@@ -764,6 +781,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3208111838179376437, guid: d32962e065f63c1488f4a595f50bf82a,
+        type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.63
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d32962e065f63c1488f4a595f50bf82a, type: 3}

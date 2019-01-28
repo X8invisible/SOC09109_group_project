@@ -1,18 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HUDManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //Used for HUD fuel count
+    public Image fuelBar;
+    public int maxFuel;
+    public int minFuel;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void fuelBarDisplay(float currentFuel){
+        float currentFuelPercentage;
+        currentFuelPercentage = currentFuel / (maxFuel - minFuel);
+        fuelBar.fillAmount = currentFuelPercentage;
     }
 }
