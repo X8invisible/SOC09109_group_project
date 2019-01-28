@@ -17,7 +17,7 @@ public class Car : Vehicle
         this.Brakes = 0.2f;
         this.Acceleration = 0.0f;
         this.Steer = 0.0f;
-        this.fuelCount = 25.0f;
+        this.FuelCount = 25.0f;
         this.Lives = 3;
         this.Accelerate(10);
     }
@@ -214,7 +214,7 @@ public class Car : Vehicle
         }
         */
 
-        // Debug.Log("Fuel count: " + FuelCount);
+        Debug.Log("Fuel count: " + FuelCount);
     }
     
     // Detects contact between the car and fuel objects
