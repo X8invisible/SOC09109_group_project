@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Fuel
   - Obstacle
-  - PlayerController
+  - Car
   layers:
   - Default
   - TransparentFX
