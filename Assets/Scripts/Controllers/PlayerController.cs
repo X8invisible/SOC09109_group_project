@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 
     // For accessing the car game object so we can access it's components through the car script
     public GameObject carGameObject;
-    public GameObject HUD;
 
     // a script that is for testing purposes
     public runPythonScript test;
@@ -27,7 +26,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         car.UpdateFuelCount();
-        HUD.fuelBarDisplay(car.FuelCount);
     }
 
     // is called x amount of times per frame, so physics won't be applied every frame and will be smoother
