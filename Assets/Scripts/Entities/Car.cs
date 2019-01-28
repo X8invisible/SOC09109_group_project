@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Car : Vehicle
 {
@@ -18,7 +19,7 @@ public class Car : Vehicle
         this.Acceleration = 0.0f;
         this.Steer = 0.0f;
         this.FuelCount = 25.0f;
-        this.Lives = 3;
+        this.Lives = 10.0f;
         this.Accelerate(10);
     }
 
@@ -171,29 +172,34 @@ public class Car : Vehicle
         Debug.Log("----end StopCarMotion----");
     }
 
-    // when the car collides with an object and it loses lives
+    // When the car collides with an object and it loses lives
     public override void Collision()
     {
-        Debug.Log("----start collision----");
+      if (AccForward == true)
+        this.Lives -= (float)(Math.Round((Acceleration) / 2, MidpointRounding.AwayFromZero) / 2);
+      if (AccBackward == true)
+        this.Lives -= (float)((Math.Round((Acceleration) / 2, MidpointRounding.AwayFromZero) / 2) * -1);
 
-        this.Acceleration = 0.0f;
+      this.Acceleration = 0.0f;
 
-        if (CheckLives() == true)
-            this.Lives -= 1;
-        else
-            //end game
-
-        Debug.Log("----end collision----");
+      Debug.Log("Lives: " + this.Lives);
+      
+      if (this.Lives < 0)
+      {
+        this.Lives = 0;
+        Debug.Log("You are now dead!");
+      }
     }
 
+    // Checks if the player is dead
     public override bool CheckLives()
     {
-        if (this.Lives == 0) // if dead
+        if (this.Lives >= 0)
             return false;
-        else // if still has at least 1 life
-            return true;
+        return true;
     }
 
+    // Updates the fuel count based on the acceleration
     public void UpdateFuelCount( Image fuelBar, int maxFuel, int minFuel)
     {
         float currentFuelPercentage;
@@ -205,20 +211,10 @@ public class Car : Vehicle
 
         currentFuelPercentage = FuelCount / (maxFuel - minFuel);
         fuelBar.fillAmount = currentFuelPercentage;
-
-
-        /*if (fuelCount <= 0)
-        {
-            Acceleration = 0;
-            Steer = 0;
-        }*/
-
-
-         Debug.Log("Fuel count: " + FuelCount);
-         Debug.Log("Speed: " + Acceleration);
     }
 
     // Detects contact between the car and fuel objects
+    // Author: Sonas
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Fuel"))
@@ -230,9 +226,8 @@ public class Car : Vehicle
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Obstacle"))
-            this.Collision();
+      if (col.gameObject.CompareTag("Obstacle"))
+          this.Collision();
     }
-
 
 }
