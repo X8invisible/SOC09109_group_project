@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("------START-------");
         car = new Car(transform);
+        Debug.Log("hit");
     }
 
     // SONAS
