@@ -6,6 +6,7 @@ public class Car : Vehicle
     bool AccForward, AccBackward, Left, Right = false;
 
     private Transform transform;
+
     // Used for fuel counter
     public float fuelCount;
 
@@ -18,6 +19,7 @@ public class Car : Vehicle
         this.Acceleration = 0.0f;
         this.Steer = 0.0f;
         this.fuelCount = 25.0f;
+        this.Lives = 3;
     }
 
     public override void Accelerate(int Direction)
@@ -128,14 +130,14 @@ public class Car : Vehicle
 
     public override void RotateLeft()
     {
-        Debug.Log("----RotateLeft----");
+        //Debug.Log("----RotateLeft----");
 
         Left = true;
     }
 
     public override void RotateRight()
     {
-        Debug.Log("----RotateRight----");
+        //Debug.Log("----RotateRight----");
 
         Right = true;
     }
@@ -167,7 +169,7 @@ public class Car : Vehicle
         Debug.Log("----end StopCarMotion----");
     }
 
-    // when the car collides with an object
+    // when the car collides with an object and it loses lives
     public override void Collision()
     {
         Debug.Log("----start collision----");
@@ -182,7 +184,14 @@ public class Car : Vehicle
         Debug.Log("----end collision----");
     }
 
-    //SONAS and ANDREI
+    public override bool CheckLives()
+    {
+        if (this.Lives == 0) // if dead
+            return false;
+        else // if still has at least 1 life
+            return true;
+    }
+    
     public void UpdateFuelCount( Image fuelBar, int maxFuel, int minFuel)
     {
         float currentFuelPercentage;
@@ -194,19 +203,18 @@ public class Car : Vehicle
 
         currentFuelPercentage = FuelCount / (maxFuel - minFuel);
         fuelBar.fillAmount = currentFuelPercentage;
-        /*if (fuelCount <= 0)
-      {
-        Acceleration *= 0;
-        Steer *= 0;
-      }*/
-
-        // this is to test to see if the fuel pick ups work
-        Debug.Log("Fuel count: " + FuelCount);
+        
+        /*
+        if (fuelCount <= 0)
+        {
+            Acceleration *= 0;
+            Steer *= 0;
+        }
+        */
+        
+        // Debug.Log("Fuel count: " + FuelCount);
     }
 
-    public float FuelCount
-    {
-        get { return fuelCount; }
-        set { fuelCount = value; }
-    }
+    
+    
 }

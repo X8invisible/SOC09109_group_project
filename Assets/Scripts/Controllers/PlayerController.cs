@@ -3,15 +3,13 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-
-    // MARIA
-
     Car car;
-    //Andrei
+    
     //used for the HUD fuel representation
     public Image fuelBar;
     public int minFuel;
     public int maxFuel;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,13 +17,13 @@ public class PlayerController : MonoBehaviour
         car = new Car(transform);
         Debug.Log("hit");
     }
-
-    // SONAS
+    
     // This is called once per frame
     void Update()
     {
         car.UpdateFuelCount(fuelBar,maxFuel, minFuel);
     }
+
     // is called x amount of times per frame, so physics won't be applied every frame and will be smoother
     private void FixedUpdate()
     {
@@ -58,16 +56,14 @@ public class PlayerController : MonoBehaviour
             car.BrakeSlowly();
     }
 
-
-    // SONAS
+    
     // Detects contact between the car and fuel objects
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Fuel"))
             other.gameObject.SetActive(false);
     }
-
-    // CAIO
+    
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Obstacle"))

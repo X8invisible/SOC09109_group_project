@@ -11,6 +11,7 @@ public abstract class Vehicle : MonoBehaviour
     public bool AccelFwd { get; set; }
     public bool AccelBwd { get; set; }
     public int Lives { get; set; }
+    public float FuelCount { get; set; }
 
     public abstract void Accelerate(int Direction);
 
