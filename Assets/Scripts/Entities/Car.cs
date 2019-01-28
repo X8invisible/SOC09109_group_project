@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Car : Vehicle
 {
     bool AccForward, AccBackward, Left, Right = false;
-    
+
     // Used for fuel counter
     public float fuelCount;
 
@@ -206,24 +206,28 @@ public class Car : Vehicle
         currentFuelPercentage = FuelCount / (maxFuel - minFuel);
         fuelBar.fillAmount = currentFuelPercentage;
 
-        /*
-        if (fuelCount <= 0)
-        {
-            Acceleration *= 0;
-            Steer *= 0;
-        }
-        */
 
-        Debug.Log("Fuel count: " + FuelCount);
+        /*if (fuelCount <= 0)
+        {
+            Acceleration = 0;
+            Steer = 0;
+        }*/
+
+
+         Debug.Log("Fuel count: " + FuelCount);
+         Debug.Log("Speed: " + Acceleration);
     }
-    
+
     // Detects contact between the car and fuel objects
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Fuel"))
-            other.gameObject.SetActive(false);
+        {
+          this.FuelCount += 5;
+          other.gameObject.SetActive(false);
+        }
     }
-    
+
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Obstacle"))
