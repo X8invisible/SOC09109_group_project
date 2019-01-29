@@ -75,6 +75,15 @@ public class PlayerController : MonoBehaviour
         }
 
 
+
+
+        // PS4 CONTROLLER SUPPORT 
+        if (Input.GetButton("PS4_O"))
+
+
+
+
+
         //TESTING PURPOSES (DARWON PART)
 
         //Testing style transfer script
