@@ -246,13 +246,13 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: PS4_X
+    m_Name: CarForward
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: return
+    positiveButton: joystick button 3
     altNegativeButton: 
-    altPositiveButton: joystick button 1
+    altPositiveButton: 
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -262,23 +262,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: PS4_O
-    descriptiveName: 
-    descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: joystick button 2
-    altNegativeButton: 
-    altPositiveButton: space
-    gravity: 1000
-    dead: 0.001
-    sensitivity: 1000
-    snap: 0
-    invert: 0
-    type: 0
-    axis: 0
-    joyNum: 0
-  - serializedVersion: 3
-    m_Name: PS4_Square
+    m_Name: CarBack
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -294,11 +278,27 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: PS4_Triangle
+    m_Name: CarRight
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: joystick button 3
+    positiveButton: joystick button 1
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 1000
+    dead: 0.001
+    sensitivity: 1000
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: CarLeft
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: joystick button 2
     altNegativeButton: 
     altPositiveButton: 
     gravity: 1000
@@ -470,7 +470,7 @@ InputManager:
     axis: 7
     joyNum: 0
   - serializedVersion: 3
-    m_Name: PS4_RightAnalogueHorizontal
+    m_Name: LeftX-Axis
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -483,10 +483,10 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 2
+    axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: PS4_RightAnalogueVertical
+    m_Name: LeftY-Axis
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
@@ -499,7 +499,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 5
+    axis: 1
     joyNum: 0
   - serializedVersion: 3
     m_Name: PS4_Touch
