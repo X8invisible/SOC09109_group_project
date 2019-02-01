@@ -619,7 +619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fuelBar: {fileID: 23169072}
   minFuel: 0
-  maxFuel: 100
+  maxFuel: 0
   carGameObject: {fileID: 140407060}
   test: {fileID: 0}
 --- !u!4 &1061563163

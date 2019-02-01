@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
         //Testing style transfer script
         if (Input.GetKey(KeyCode.P))
         {
-            test.runPythonStyleTransfer();
+            test.runTensorFlowSharp();
         }
     }
 
