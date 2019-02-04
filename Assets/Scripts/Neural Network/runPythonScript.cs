@@ -13,20 +13,8 @@ public class runPythonScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-            Debug.Log("started runPythonscript.cs");
-
-            var engine = global::UnityPython.CreateEngine();
-            var scope = engine.CreateScope();
-
-
-            var source = engine.ExecuteFile("changeImage.py", scope);
-
-           // dynamic test = scope.GetVariable("testFunc");
-
-            //var result = test(3, 4);
-
-            //Debug.Log(result);
-            
+           
+        
 
 
     }
@@ -34,21 +22,44 @@ public class runPythonScript : MonoBehaviour
 
     public void runPythonStyleTransfer()
     {
-        
-    }
-
-    public void runTensorFlowSharp()
-    {
         Debug.Log("started runPythonscript.cs");
 
         var engine = global::UnityPython.CreateEngine();
-        
+
+
+        ICollection<string> searchPaths = engine.GetSearchPaths();
+
+
+        searchPaths.Add(@"C:\Users\darwo\Desktop\internship-workspace\Python workspace\venv\Lib\site-packages");
+
+        searchPaths.Add(@"C:\Users\darwo\Desktop\driving_simulator_repo\group_project\SOC09109_group_project\Assets\Plugins\Python\Lib");
+
+
+        engine.SetSearchPaths(searchPaths);
+
+        foreach (string path in engine.GetSearchPaths())
+        {
+            Debug.Log(path);
+        }
+
 
         var scope = engine.CreateScope();
 
 
-        var source = engine.ExecuteFile("Assets/Scripts/Neural Network/changeImage.py", scope);
+        var source = engine.ExecuteFile("Assets /Scripts/Neural Network/changeImage.py", scope);
 
+
+        dynamic test = scope.GetVariable("testFunc");
+
+        var result = test(3, 4);
+
+        Debug.Log(result);
+
+    }
+
+    public void runTensorFlowSharp()
+    {
+       
            
 
         
