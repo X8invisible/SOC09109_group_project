@@ -51,9 +51,9 @@ public class runPythonScript : MonoBehaviour
 
         dynamic test = scope.GetVariable("testFunc");
 
-        var result = test(3, 4);
+//        var result = test(3, 4);
 
-        Debug.Log(result);
+//        Debug.Log(result);
 
     }
 
