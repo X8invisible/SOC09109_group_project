@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9dabe5c9225748a48a8d223f54e2f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardScript: {fileID: 0}
+  boardManager: {fileID: 0}
 --- !u!114 &613537121180839813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,6 +72,6 @@ MonoBehaviour:
   - {fileID: 218589130219326118, guid: e8e58568291126a408ed384567becdf8, type: 3}
   - {fileID: 218589130219326118, guid: 2e4a7e3fbf919e74fad0458197da030d, type: 3}
   outerWallTiles:
-  - {fileID: 218589130219326118, guid: 2e4a7e3fbf919e74fad0458197da030d, type: 3}
+  - {fileID: 218589130219326118, guid: 58ca182d0285b8e489930b68dbc4d2d5, type: 3}
   itemTiles:
   - {fileID: 218589130219326118, guid: 289f98c44478949a0b941c18b35b0ead, type: 3}

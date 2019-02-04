@@ -130,18 +130,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2092022201661061037}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &140407061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140407060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e448bdd4b6bf814fb6642a027fea816, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &269174019
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,11 +777,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
-    - target: {fileID: 2092022201797740217, guid: 1bc4437f702f70f4e8b007c945e25462,
-        type: 3}
-      propertyPath: m_TagString
-      value: Car
-      objectReference: {fileID: 0}
     - target: {fileID: 2092022201797740213, guid: 1bc4437f702f70f4e8b007c945e25462,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -849,8 +832,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2092022201797740216, guid: 1bc4437f702f70f4e8b007c945e25462, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bc4437f702f70f4e8b007c945e25462, type: 3}
 --- !u!1001 &5987997298972464808
 PrefabInstance:
