@@ -31,31 +31,31 @@ public class PlayerController : MonoBehaviour
     // is called x amount of times per frame, so physics won't be applied every frame and will be smoother
     private void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey("w")) //Accelerate forwards
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey("w") || Input.GetButton("CarForward")) //Accelerate forwards
         {
             car.Accelerate(1);
 
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d") || Input.GetButton("CarRight"))
             {  // rotate to the right
                 car.RotateRight();
             }
-            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))
+            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a") || Input.GetButton("CarLeft"))
             {
                 // rotate to the left
                 car.RotateLeft();
             }
         }
 
-        else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey("s")) //Accelerate backwards
+        else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey("s") || Input.GetButton("CarBack")) //Accelerate backwards
         {
             car.Accelerate(-1);
 
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d"))
+            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d") || Input.GetButton("CarRight"))
             {
                 // rotate to the right
                 car.RotateRight();
             }
-            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a"))
+            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a") || Input.GetButton("CarLeft"))
             { // rotate to the left
                 car.RotateLeft();
             }
@@ -73,6 +73,15 @@ public class PlayerController : MonoBehaviour
             // if no button pressed, stop car
             car.BrakeSlowly();
         }
+
+
+
+
+        // PS4 CONTROLLER SUPPORT 
+       // if (Input.GetButton("PS4_O"))
+
+
+
 
 
         //TESTING PURPOSES (DARWON PART)
