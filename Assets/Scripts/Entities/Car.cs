@@ -7,7 +7,7 @@ public class Car : Vehicle
     bool AccForward, AccBackward, Left, Right = false;
 
     // Used for fuel counter
-    public float fuelCount;
+    private float fuelCount;
 
     void Start()
     {
@@ -199,18 +199,23 @@ public class Car : Vehicle
         return true;
     }
 
-    // Updates the fuel count based on the acceleration
-    public void UpdateFuelCount( Image fuelBar, int maxFuel, int minFuel)
+    public void UpdateFuelCount()
     {
-        float currentFuelPercentage;
+        
         // If there is acceleration, decrease fuel
         if (AccForward == true)
             FuelCount -= 0.01f * Acceleration;
         if (AccBackward == true)
             FuelCount -= 0.01f * Acceleration * -1;
+        /*if (fuelCount <= 0)
+        {
+            Acceleration = 0;
+            Steer = 0;
+        }*/
 
-        currentFuelPercentage = FuelCount / (maxFuel - minFuel);
-        fuelBar.fillAmount = currentFuelPercentage;
+
+        // Debug.Log("Fuel count: " + FuelCount);
+         //Debug.Log("Speed: " + Acceleration);
     }
 
     // Detects contact between the car and fuel objects
