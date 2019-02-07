@@ -19,7 +19,7 @@ public class Car : Vehicle
         this.Acceleration = 0.0f;
         this.Steer = 0.0f;
         this.FuelCount = 25.0f;
-        this.Lives = 10.0f;
+        this.Lives = 20.0f;
         this.Accelerate(10);
     }
 
@@ -176,9 +176,9 @@ public class Car : Vehicle
     public override void Collision()
     {
       if (AccForward == true)
-        this.Lives -= (float)(Math.Round((Acceleration) / 2, MidpointRounding.AwayFromZero) / 2);
+        this.Lives -= (float)(Math.Round((Acceleration) / 2, MidpointRounding.AwayFromZero) / 2)*2;
       if (AccBackward == true)
-        this.Lives -= (float)((Math.Round((Acceleration) / 2, MidpointRounding.AwayFromZero) / 2) * -1);
+        this.Lives -= (float)((Math.Round((Acceleration) / 2, MidpointRounding.AwayFromZero) / 2) * -1)*2;
 
       this.Acceleration = 0.0f;
 
