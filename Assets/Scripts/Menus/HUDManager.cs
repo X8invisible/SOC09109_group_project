@@ -9,7 +9,7 @@ public class HUDManager : MonoBehaviour
     public int maxFuel;
     public int minFuel;
     public Image[] hearts;
-    private int healthPerHeart =2;
+    private int healthPerHeart =4;
     private Car car;
 
     void Start()
@@ -30,6 +30,11 @@ public class HUDManager : MonoBehaviour
         int health = (int)life;
         int heart = health / healthPerHeart;
         int heartFill = health % healthPerHeart;
+        for(int i=0;i<hearts.Length;i++)
+        {
+            if(i*4>health)
+                hearts[i].fillAmount=0;
+        }
         if(health % healthPerHeart ==0){
             //full health would give index out of bounds
             if(heart == hearts.Length){
