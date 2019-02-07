@@ -183,7 +183,7 @@ public class Car : Vehicle
       this.Acceleration = 0.0f;
 
       Debug.Log("Lives: " + this.Lives);
-      
+
       if (this.Lives < 0)
       {
         this.Lives = 0;

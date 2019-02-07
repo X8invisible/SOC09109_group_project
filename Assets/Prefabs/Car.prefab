@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2092022201797740218}
   - component: {fileID: 2092022201797740219}
   - component: {fileID: 2092022201797740215}
-  - component: {fileID: 2092022201797740216}
   m_Layer: 0
   m_Name: Car
   m_TagString: Car
@@ -193,16 +192,3 @@ PolygonCollider2D:
       - {x: 0.59, y: -3}
       - {x: 0.79999995, y: -2.97}
       - {x: 0.95, y: -2.9399998}
---- !u!114 &2092022201797740216
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2092022201797740217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40eb78fbdc6c7824aa15feca4a233ac0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fuelCount: 0

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    
+
     //used for the HUD fuel representation
 
     public Image fuelBar;
