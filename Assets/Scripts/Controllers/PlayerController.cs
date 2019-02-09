@@ -3,14 +3,6 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-
-    //used for the HUD fuel representation
-
-    public Image fuelBar;
-    public int minFuel;
-    public int maxFuel;
-
-
     // For accessing the car game object so we can access it's components through the car script
     public GameObject carGameObject;
 
@@ -31,7 +23,7 @@ public class PlayerController : MonoBehaviour
     // This is called once per frame
     void Update()
     {
-        car.UpdateFuelCount(fuelBar,maxFuel, minFuel);
+        car.UpdateFuelCount();
     }
 
     // is called x amount of times per frame, so physics won't be applied every frame and will be smoother
