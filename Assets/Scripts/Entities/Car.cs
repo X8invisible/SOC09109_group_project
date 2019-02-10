@@ -6,9 +6,6 @@ public class Car : Vehicle
 {
     bool AccForward, AccBackward, Left, Right = false;
 
-    // Used for fuel counter
-    private float fuelCount;
-
     void Start()
     {
         Debug.Log("Car start ");

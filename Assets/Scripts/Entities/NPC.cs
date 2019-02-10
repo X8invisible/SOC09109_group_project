@@ -6,14 +6,11 @@ public class NPC : Vehicle
 {
     bool AccForward, AccBackward, Left, Right = false;
 
-    // Used for fuel counter
-    public float fuelCount;
-
     void Start()
     {
         Debug.Log("Car start ");
 
-        this.MaxSpeed = 7.0f;
+        this.MaxSpeed = 5.0f;
         this.MaxSteer = 2.0f;
         this.Brakes = 0.2f;
         this.Acceleration = 0.0f;
@@ -36,7 +33,7 @@ public class NPC : Vehicle
             AccForward = true;
 
             if (this.Acceleration <= this.MaxSpeed)
-                this.Acceleration += 0.05f;
+                this.Acceleration += 0.03f;
 
             if (Left)
             {
@@ -202,15 +199,11 @@ public class NPC : Vehicle
     // Updates the fuel count based on the acceleration
     public void UpdateFuelCount( Image fuelBar, int maxFuel, int minFuel)
     {
-        float currentFuelPercentage;
         // If there is acceleration, decrease fuel
         if (AccForward == true)
             FuelCount -= 0.01f * Acceleration;
         if (AccBackward == true)
             FuelCount -= 0.01f * Acceleration * -1;
-
-        currentFuelPercentage = FuelCount / (maxFuel - minFuel);
-        fuelBar.fillAmount = currentFuelPercentage;
     }
 
     // Detects contact between the car and fuel objects

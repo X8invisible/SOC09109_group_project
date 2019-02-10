@@ -46,9 +46,9 @@ public class BoardManager : MonoBehaviour
     {
         gridPositions.Clear();
         //loops through the grid, without the edges of the map
-        for(int x = 1; x < columns - 1; x++)
+        for(int x = 0; x < columns - 1; x++)
         {
-            for (int y =1; y < rows - 1; y++)
+            for (int y =0; y < rows - 1; y++)
             {
                 gridPositions.Add(new Vector3(x, y, 0f));
             }
@@ -68,7 +68,7 @@ public class BoardManager : MonoBehaviour
                 if (x == -1 || x == columns || y == -1 || y == rows)
                     toInstantiate = outerWallTiles[Random.Range(0, outerWallTiles.Length)];
 
-                GameObject instance = Instantiate(toInstantiate, new Vector3(x, y, 0f), Quaternion.identity) as GameObject;
+                GameObject instance = Instantiate(toInstantiate, new Vector3(x+(int)transform.position.x, y+ (int)transform.position.y, 0f), Quaternion.identity) as GameObject;
 
                 instance.transform.SetParent(boardHolder);
             }
