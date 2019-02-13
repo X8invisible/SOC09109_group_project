@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 613537121180839815}
   - component: {fileID: 613537121180839812}
-  - component: {fileID: 613537121180839813}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,34 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9dabe5c9225748a48a8d223f54e2f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boardManager: {fileID: 0}
---- !u!114 &613537121180839813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613537121180839810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81de9870ccdf84c42bf999cb6bb26a37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  columns: 16
-  rows: 9
-  treeCount:
-    minimum: 5
-    maximum: 10
-  itemCount:
-    minimum: 2
-    maximum: 7
-  floorTiles:
-  - {fileID: 3556942624783886928, guid: 55c3a33811f46af49b33886d35f35e7b, type: 3}
-  - {fileID: 1736256676, guid: 57e56cd9089e2954786a922a131fa772, type: 3}
-  treeTiles:
-  - {fileID: 218589130219326118, guid: e8e58568291126a408ed384567becdf8, type: 3}
-  - {fileID: 218589130219326118, guid: 2e4a7e3fbf919e74fad0458197da030d, type: 3}
-  outerWallTiles:
-  - {fileID: 218589130219326118, guid: 58ca182d0285b8e489930b68dbc4d2d5, type: 3}
-  itemTiles:
-  - {fileID: 218589130219326118, guid: 289f98c44478949a0b941c18b35b0ead, type: 3}
+  chunkGO: {fileID: 3891948566236122189, guid: 6fc550f63f821b146813d013437be8d1, type: 3}
+  renderDistance: 4
