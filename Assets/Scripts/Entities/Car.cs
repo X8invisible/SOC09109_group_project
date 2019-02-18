@@ -15,7 +15,7 @@ public class Car : Vehicle
         this.Brakes = 0.2f;
         this.Acceleration = 0.0f;
         this.Steer = 0.0f;
-        this.FuelCount = 25.0f;
+        this.FuelCount = 100.0f;
         this.Lives = 20.0f;
         this.Accelerate(10);
     }
@@ -142,6 +142,11 @@ public class Car : Vehicle
         Right = true;
     }
 
+    public override void StopRotate()
+    {
+      this.Steer = 0;
+    }
+
     // applies Brakes slowly if no key is pressed
     public override void BrakeSlowly()
     {
@@ -198,7 +203,7 @@ public class Car : Vehicle
 
     public void UpdateFuelCount()
     {
-        
+
         // If there is acceleration, decrease fuel
         if (AccForward == true)
             FuelCount -= 0.01f * Acceleration;
@@ -221,7 +226,16 @@ public class Car : Vehicle
     {
         if (other.gameObject.CompareTag("Fuel"))
         {
-          this.FuelCount += 5;
+          if(this.FuelCount>95)
+            this.FuelCount += (100-this.FuelCount);
+          else
+            this.FuelCount +=5;
+          other.gameObject.SetActive(false);
+        }
+        if (other.gameObject.CompareTag("Health"))
+        {
+          if (this.Lives <=19)
+            this.Lives += 1.0f;
           other.gameObject.SetActive(false);
         }
     }

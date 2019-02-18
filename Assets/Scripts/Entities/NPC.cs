@@ -130,16 +130,21 @@ public class NPC : Vehicle
 
     public override void RotateLeft()
     {
-        //Debug.Log("----RotateLeft----");
-
-        Left = true;
+      if (this.Steer <= this.MaxSteer)
+          this.Steer += 0.01f;
+      transform.Rotate(Vector3.forward * Steer);
     }
 
     public override void RotateRight()
     {
-        //Debug.Log("----RotateRight----");
+      if (this.Steer <= this.MaxSteer)
+          this.Steer += 0.01f;
+      transform.Rotate(Vector3.back * Steer);
+    }
 
-        Right = true;
+    public override void StopRotate()
+    {
+      this.Steer = 0;
     }
 
     // applies Brakes slowly if no key is pressed
@@ -178,9 +183,6 @@ public class NPC : Vehicle
         this.Lives -= (float)((Math.Round((Acceleration) / 2, MidpointRounding.AwayFromZero) / 2) * -1);
 
       this.Acceleration = 0.0f;
-
-      Debug.Log("Lives: " + this.Lives);
-
       if (this.Lives < 0)
       {
         this.Lives = 0;
@@ -204,17 +206,6 @@ public class NPC : Vehicle
             FuelCount -= 0.01f * Acceleration;
         if (AccBackward == true)
             FuelCount -= 0.01f * Acceleration * -1;
-    }
-
-    // Detects contact between the car and fuel objects
-    // Author: Sonas
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Fuel"))
-        {
-          this.FuelCount += 5;
-          other.gameObject.SetActive(false);
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D col)

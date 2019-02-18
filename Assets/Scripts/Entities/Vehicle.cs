@@ -21,6 +21,8 @@ public abstract class Vehicle : MonoBehaviour
 
     public abstract void RotateRight();
 
+    public abstract void StopRotate();
+
     // apply brakes slowly if no key is pressed
     public abstract void BrakeSlowly();
 

@@ -26,17 +26,18 @@ public class Chunk : MonoBehaviour
 	// how many items we want in a level
 	public Count itemCount = new Count(1, 5);
 
-
 	//for storing multiple game objects of same type
 	public GameObject[] floorTiles;
 	public GameObject[] treeTiles;
-	public GameObject[] itemTiles;
+	public GameObject[] fuelTiles;
+	public GameObject[] healthTiles;
 
 	private List<Vector3> gridPositions = new List<Vector3>();
 	private void Awake()
 	{
 		SetupScene();
 	}
+
 	void InitialiseList()
 	{
 		gridPositions.Clear();
@@ -52,7 +53,6 @@ public class Chunk : MonoBehaviour
 
 	void BoardSetup()
 	{
-		
 		//loops through the grid, but also outside the 'playable' edge in order to create the confining wall
 		for (int x = -1; x < size + 1; x++)
 		{
@@ -99,7 +99,9 @@ public class Chunk : MonoBehaviour
 		InitialiseList();
 		LayoutObjectAtRandom(treeTiles, treeCount.minimum, treeCount.maximum);
 
-		LayoutObjectAtRandom(itemTiles, itemCount.minimum, itemCount.maximum);
+		LayoutObjectAtRandom(fuelTiles, itemCount.minimum, itemCount.maximum);
+
+		LayoutObjectAtRandom(healthTiles, itemCount.minimum, itemCount.maximum);
 
 	}
 }

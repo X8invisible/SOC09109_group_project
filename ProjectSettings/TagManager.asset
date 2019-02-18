@@ -9,6 +9,7 @@ TagManager:
   - Car
   - PlayerController
   - NPC
+  - Health
   layers:
   - Default
   - TransparentFX

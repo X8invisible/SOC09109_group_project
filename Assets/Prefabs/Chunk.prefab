@@ -57,5 +57,7 @@ MonoBehaviour:
   - {fileID: 1736256676, guid: 57e56cd9089e2954786a922a131fa772, type: 3}
   - {fileID: 218589130219326118, guid: e8e58568291126a408ed384567becdf8, type: 3}
   - {fileID: 218589130219326118, guid: 2e4a7e3fbf919e74fad0458197da030d, type: 3}
-  itemTiles:
+  fuelTiles:
   - {fileID: 218589130219326118, guid: 289f98c44478949a0b941c18b35b0ead, type: 3}
+  healthTiles:
+  - {fileID: 218589130219326118, guid: 07d8d2ecbf18248ae88c74abb8d1853c, type: 3}
