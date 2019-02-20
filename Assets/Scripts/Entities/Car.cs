@@ -151,6 +151,7 @@ public class Car : Vehicle
     public override void BrakeSlowly()
     {
         //Debug.Log("----start of Brake----");
+
         if (AccForward)
         { // while moving forwards
             //Debug.Log("---Acceleration = "+this.Acceleration);
