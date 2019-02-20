@@ -31,7 +31,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey("w") || (Input.GetAxis("CarForward")>0)) //Accelerate forwards
         {
-            car.Accelerate(1);
+            if (!Input.GetKey(KeyCode.Space)) // if space key is pressed the car won't run
+                car.Accelerate(1);            // the brakes have priority over the acceleration
+
+            if (Input.GetKey(KeyCode.Space)) // if pressed only a litle but a couple of times
+                car.StopCarMotion();         // it will slowly slow down
 
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d") || (Input.GetAxis("CarDirection")>0))
             {  // rotate to the right
@@ -71,16 +75,6 @@ public class PlayerController : MonoBehaviour
             // if no button pressed, stop car
             car.BrakeSlowly();
         }
-
-
-
-
-        // PS4 CONTROLLER SUPPORT 
-       // if (Input.GetButton("PS4_O"))
-
-
-
-
 
         //TESTING PURPOSES (DARWON PART)
 

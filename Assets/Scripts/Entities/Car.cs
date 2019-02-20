@@ -8,7 +8,7 @@ public class Car : Vehicle
 
     void Start()
     {
-        Debug.Log("Car start ");
+        Debug.Log("Car start");
 
         this.MaxSpeed = 7.0f;
         this.MaxSteer = 2.0f;
