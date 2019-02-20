@@ -50,7 +50,11 @@ public class PlayerController : MonoBehaviour
 
         else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey("s") || (Input.GetAxis("CarBack")>0)) //Accelerate backwards
         {
-            car.Accelerate(-1);
+            if (!Input.GetKey(KeyCode.Space))
+                car.Accelerate(-1);
+
+            if (Input.GetKey(KeyCode.Space)) 
+                car.StopCarMotion();
 
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d") || (Input.GetAxis("CarDirection")>0))
             {
@@ -70,8 +74,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-
-            //NEEDS TWEAKING
             // if no button pressed, stop car
             car.BrakeSlowly();
         }
