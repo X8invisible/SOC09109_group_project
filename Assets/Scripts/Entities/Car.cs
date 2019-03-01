@@ -26,6 +26,9 @@ public class Car : Vehicle
     {
         // Debug.Log("----start Accelerate from Car.cs----");
 
+        if (CheckFuel() == false || CheckLives() == false)
+          return;
+
         if (Direction == 1)
         {
             // Debug.Log("Direction == 1");
@@ -196,7 +199,15 @@ public class Car : Vehicle
     // Checks if the player is dead
     public override bool CheckLives()
     {
-        if (this.Lives >= 0)
+        if (this.Lives <= 0)
+            return false;
+        return true;
+    }
+
+    // Checks if player has no fuel
+    public override bool CheckFuel()
+    {
+        if (this.FuelCount <= 0)
             return false;
         return true;
     }

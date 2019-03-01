@@ -198,6 +198,14 @@ public class NPC : Vehicle
         return true;
     }
 
+    // Checks if player has no fuel
+    public override bool CheckFuel()
+    {
+        if (this.FuelCount >= 0)
+            return false;
+        return true;
+    }
+
     // Updates the fuel count based on the acceleration
     public void UpdateFuelCount( Image fuelBar, int maxFuel, int minFuel)
     {

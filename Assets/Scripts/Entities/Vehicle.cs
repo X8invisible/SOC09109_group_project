@@ -35,4 +35,6 @@ public abstract class Vehicle : MonoBehaviour
     // when a car loses its 3 lives - end of game
     public abstract bool CheckLives();
 
+    public abstract bool CheckFuel();
+
 }
