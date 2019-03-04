@@ -8,7 +8,7 @@ public class Car : Vehicle
 
     void Start()
     {
-        Debug.Log("Car start ");
+        Debug.Log("Car start");
 
         this.MaxSpeed = 7.0f;
         this.MaxSteer = 2.0f;
@@ -17,7 +17,7 @@ public class Car : Vehicle
         this.Steer = 0.0f;
         this.FuelCount = 10000.0f;
         this.Lives = 20.0f;
-        this.Accelerate(10);
+        //this.Accelerate(10);
     }
 
 
@@ -36,7 +36,7 @@ public class Car : Vehicle
             AccForward = true;
 
             if (this.Acceleration <= this.MaxSpeed)
-                this.Acceleration += 0.05f;
+                this.Acceleration += 0.1f;
 
             if (Left)
             {
@@ -57,7 +57,7 @@ public class Car : Vehicle
             AccBackward = true;
 
             if ((-1 * this.MaxSpeed) <= this.Acceleration) // MinSpeed is MaxSpeed * -1 so they are symmetrical
-                this.Acceleration -= 0.05f;   // keep decelerating if MinSpeed hasn't been reached
+                this.Acceleration -= 0.1f;   // keep decelerating if MinSpeed hasn't been reached
 
             if (Left)
             {
@@ -87,7 +87,7 @@ public class Car : Vehicle
         {
             if (this.Acceleration >= 0.0f)
             {
-                this.Acceleration -= this.Brakes;
+                this.Acceleration -= BreakingFactor;
 
                 if (Left)
                 {
@@ -107,7 +107,7 @@ public class Car : Vehicle
         {
             if (this.Acceleration <= 0.0f)
             {
-                this.Acceleration += this.Brakes;
+                this.Acceleration += BreakingFactor;
 
                 if (Left)
                 {
@@ -147,34 +147,40 @@ public class Car : Vehicle
 
     public override void StopRotate()
     {
-      this.Steer = 0;
+        this.Steer = 0;
     }
 
     // applies Brakes slowly if no key is pressed
     public override void BrakeSlowly()
     {
-        // Debug.Log("----start of Brake----");
+        //Debug.Log("----start of Brake----");
 
-        if (AccForward) // while moving forwards
+        if (AccForward)
+        { // while moving forwards
+            //Debug.Log("---Acceleration = "+this.Acceleration);
             StopAcc(1, 0.1f);
+        }
 
-        else if (AccBackward) // while moving backwards
+        else if (AccBackward)
+        { // while moving backwards
+            //Debug.Log("AccBackwards = " + AccBackward);
             StopAcc(-1, 0.1f);
+        }
 
-        // Debug.Log("----end of Brake----");
+        //Debug.Log("----end of Brake----");
     }
 
     // if space is pressed, stop car immediately
     public override void StopCarMotion()
     {
-        Debug.Log("----start StopCarMotion----");
+        Debug.Log("----StopCarMotion----");
 
         if (AccForward)
             StopAcc(1, this.Brakes); // while moving forwards
         else if (AccBackward)
             StopAcc(-1, this.Brakes); // while moving backwards
 
-        Debug.Log("----end StopCarMotion----");
+        //Debug.Log("----end StopCarMotion----");
     }
 
     // When the car collides with an object and it loses lives
