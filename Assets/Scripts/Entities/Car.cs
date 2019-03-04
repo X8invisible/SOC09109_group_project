@@ -15,7 +15,7 @@ public class Car : Vehicle
         this.Brakes = 0.2f;
         this.Acceleration = 0.0f;
         this.Steer = 0.0f;
-        this.FuelCount = 100.0f;
+        this.FuelCount = 10000.0f;
         this.Lives = 20.0f;
         this.Accelerate(10);
     }
