@@ -5,11 +5,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public GameObject chunkGO;
+    //public GameObject chunkGO;
     public static GameManager instance = null;
-	Dictionary<Vector2, Chunk> chunkMap;
+	//Dictionary<Vector2, Chunk> chunkMap;
 	private Car car;
-	public float renderDistance;
+	//public float renderDistance;
     void Awake()
     {
         if (instance == null)
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
         else if (instance != this)
             Destroy(gameObject);
-		chunkMap = new Dictionary<Vector2, Chunk>();
+		//chunkMap = new Dictionary<Vector2, Chunk>();
 
 	}
 	private void Start()
@@ -28,10 +28,10 @@ public class GameManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-		FindChunk();
-		DeleteChunk();
+		//FindChunk();
+		//DeleteChunk();
 	}
-
+/* 
 	void FindChunk()
 	{
 		int carX = (int)car.transform.position.x;
@@ -80,4 +80,5 @@ public class GameManager : MonoBehaviour
 			Destroy(ch.gameObject);
 		}
 	}
+	*/
 }
