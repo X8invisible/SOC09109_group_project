@@ -5,15 +5,17 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class CarShadow : MonoBehaviour
 {
-    public Vector3 offset = new Vector3(0.4f,0.4f);
-    public Vector3 scale = new Vector3(1.2f,1.2f,0);
+    public Vector3 offset = new Vector3(0.1f,0.14f);
+    public Vector3 scale = new Vector3(1f,1f,0);
     public Material material;
+    Transform tranParent;
     GameObject shadow;
     void Start()
     {
         //create a 'clone' game object that is offset from the parent
         shadow = new GameObject("CarShadow");
-        shadow.transform.parent = transform;
+        tranParent = transform;
+        shadow.transform.parent = tranParent;
         shadow.transform.localPosition = offset;
         shadow.transform.localRotation = Quaternion.identity;
         shadow.transform.localScale = scale;
@@ -28,6 +30,6 @@ public class CarShadow : MonoBehaviour
     }
     void LateUpdate()
     {
-        shadow.transform.localPosition = offset;
+        shadow.transform.position = new Vector3(tranParent.position.x + offset.x, tranParent.position.y + offset.y, 0f);
     }
 }

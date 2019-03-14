@@ -210,6 +210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 080e89e2dbd3e564eac5c7cf42f66317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0.4, y: -0.3, z: 0}
+  offset: {x: 0.1, y: 0.14, z: 0}
   scale: {x: 1, y: 1, z: 0}
   material: {fileID: 2100000, guid: 121a27c1dd5f9694cbb085c03dbef810, type: 2}
