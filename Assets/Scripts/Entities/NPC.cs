@@ -18,6 +18,7 @@ public class NPC : Vehicle
         this.FuelCount = 0;
         this.Lives = 10.0f;
         this.Accelerate(10);
+        this.EngineHeat = 0.0f;
     }
 
 
@@ -214,6 +215,26 @@ public class NPC : Vehicle
             FuelCount -= 0.01f * Acceleration;
         if (AccBackward == true)
             FuelCount -= 0.01f * Acceleration * -1;
+    }
+
+    public override void UpdateScore()
+    {
+      if (AccForward == true)
+          Score += 0.01f * Acceleration;
+
+      if (AccBackward == true)
+          Score += 0.01f * Acceleration * -1;
+
+      //Debug.Log("Score is " + Score);
+    }
+
+    public override void UpdateEngineHeat()
+    {
+      // this.MaxSpeed = 7.0f;
+      if (Acceleration > 6)
+        this.EngineHeat += 0.1f;
+
+      Debug.Log("Engine heat is " + EngineHeat);
     }
 
     private void OnCollisionEnter2D(Collision2D col)

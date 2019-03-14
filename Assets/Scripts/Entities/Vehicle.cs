@@ -12,6 +12,9 @@ public abstract class Vehicle : MonoBehaviour
     public bool AccelBwd { get; set; }
     public float Lives { get; set; }
     public float FuelCount { get; set; }
+    public float Score { get; set; }
+    public float EngineHeat { get; set; }
+
 
     public abstract void Accelerate(int Direction);
 
@@ -36,5 +39,10 @@ public abstract class Vehicle : MonoBehaviour
     public abstract bool CheckLives();
 
     public abstract bool CheckFuel();
+
+    public abstract void UpdateScore();
+
+    // When a car drives fast, the engine heats up
+    public abstract void UpdateEngineHeat();
 
 }
