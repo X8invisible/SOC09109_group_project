@@ -9,7 +9,8 @@ public class PauseManager : MonoBehaviour
 	public static bool gameIsPaused = false;
 	//this is the panel named 'PauseMenu' in the scene that needs to be visible or hidden depending on stituation
 	public GameObject pauseMenuUI;
-
+	public GameObject optionsPanel;
+	private bool panelState = true;
     // Update is called once per frame
     void Update()
     {
@@ -40,7 +41,12 @@ public class PauseManager : MonoBehaviour
 		Time.timeScale = 0f;
 		gameIsPaused = true;
 	}
-
+		public void OptionsClick()
+	{
+		pauseMenuUI.SetActive(!panelState);
+		optionsPanel.SetActive(panelState);
+		panelState = !panelState;
+	}
 	//will send you back to main menu
 	public void LoadMenu()
 	{
