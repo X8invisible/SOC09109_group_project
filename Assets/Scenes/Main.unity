@@ -161,7 +161,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 10
-  m_Range: 10
+  m_Range: 100
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -1382,6 +1382,12 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1823560092 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2804012520125566916, guid: 2244298f97f839041bfc19fe0ec6c927,
+    type: 3}
+  m_PrefabInstance: {fileID: 5987997298972464808}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2092857577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1695,6 +1701,16 @@ PrefabInstance:
     - target: {fileID: 5987997298395230738, guid: 2244298f97f839041bfc19fe0ec6c927,
         type: 3}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9151851944906643238, guid: 2244298f97f839041bfc19fe0ec6c927,
+        type: 3}
+      propertyPath: optionsPanel
+      value: 
+      objectReference: {fileID: 1823560092}
+    - target: {fileID: 5987997297778453123, guid: 2244298f97f839041bfc19fe0ec6c927,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
