@@ -10,6 +10,8 @@ TagManager:
   - PlayerController
   - NPC
   - Health
+  - LightSource
+  - Background
   layers:
   - Default
   - TransparentFX
@@ -19,11 +21,11 @@ TagManager:
   - UI
   - 
   - 
+  - Background
   - BlockLayer
-  - 
-  - 
-  - 
-  - 
+  - LightSources
+  - LightObstacles
+  - AmbientLight
   - 
   - 
   - 
@@ -58,4 +60,7 @@ TagManager:
     locked: 0
   - name: Car
     uniqueID: 2094520555
+    locked: 0
+  - name: Light
+    uniqueID: 3600009981
     locked: 0

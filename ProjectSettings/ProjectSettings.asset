@@ -106,6 +106,11 @@ PlayerSettings:
   xboxOneDisableEsram: 0
   xboxOnePresentImmediateThreshold: 0
   switchQueueCommandMemory: 0
+  switchQueueControlMemory: 16384
+  switchQueueComputeMemory: 262144
+  switchNVNShaderPoolsGranularity: 33554432
+  switchNVNDefaultPoolsGranularity: 16777216
+  switchNVNOtherPoolsGranularity: 16777216
   vulkanEnableSetSRGBWrite: 0
   m_SupportedAspectRatios:
     4:3: 1
@@ -392,6 +397,7 @@ PlayerSettings:
   switchAllowsRuntimeAddOnContentInstall: 0
   switchDataLossConfirmation: 0
   switchUserAccountLockEnabled: 0
+  switchSystemResourceMemory: 16777216
   switchSupportedNpadStyles: 3
   switchNativeFsCacheSize: 32
   switchIsHoldTypeHorizontal: 0
@@ -492,7 +498,18 @@ PlayerSettings:
   webGLCompressionFormat: 1
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    1: LIGHT2D_2DTK
+    4: LIGHT2D_2DTK
+    7: LIGHT2D_2DTK
+    13: LIGHT2D_2DTK
+    14: LIGHT2D_2DTK
+    19: LIGHT2D_2DTK
+    21: LIGHT2D_2DTK
+    25: LIGHT2D_2DTK
+    26: LIGHT2D_2DTK
+    27: LIGHT2D_2DTK
+    28: LIGHT2D_2DTK
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
