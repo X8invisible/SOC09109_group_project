@@ -55,11 +55,11 @@ TagManager:
   - name: Floor
     uniqueID: 119350923
     locked: 0
-  - name: Objects
-    uniqueID: 1144205251
-    locked: 0
   - name: Car
     uniqueID: 2094520555
+    locked: 0
+  - name: Objects
+    uniqueID: 1144205251
     locked: 0
   - name: Light
     uniqueID: 3600009981

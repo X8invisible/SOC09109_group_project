@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         car.UpdateFuelCount();
+        car.UpdateEngineHeat();
+        car.UpdateScore();
     }
 
     // is called x amount of times per frame, so physics won't be applied every frame and will be smoother
@@ -53,7 +55,7 @@ public class PlayerController : MonoBehaviour
             if (!Input.GetKey(KeyCode.Space))
                 car.Accelerate(-1);
 
-            if (Input.GetKey(KeyCode.Space)) 
+            if (Input.GetKey(KeyCode.Space))
                 car.StopCarMotion();
 
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d") || (Input.GetAxis("CarDirection")>0))

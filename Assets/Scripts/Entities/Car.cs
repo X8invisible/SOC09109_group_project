@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Collections;
+
 
 public class Car : Vehicle
 {
@@ -16,7 +18,7 @@ public class Car : Vehicle
         this.Brakes = 0.2f;
         this.Acceleration = 0.0f;
         this.Steer = 0.0f;
-        this.FuelCount = 10000.0f;
+        this.FuelCount = 100.0f;
         this.Lives = 20.0f;
         this.Score = 0.0f;
         this.EngineHeat = 0.0f;
@@ -216,10 +218,10 @@ public class Car : Vehicle
     public void UpdateFuelCount()
     {
         // If there is acceleration, decrease fuel
-        if (AccForward == true)
+        if (Acceleration > 0)
             FuelCount -= 0.01f * Acceleration;
 
-        if (AccBackward == true)
+        else
             FuelCount -= 0.01f * Acceleration * -1;
     }
 
@@ -233,8 +235,6 @@ public class Car : Vehicle
 
       if (AccBackward == true)
           Score += 0.01f * Acceleration * -1;
-
-      //Debug.Log("Score is " + Score);
     }
 
 
@@ -275,7 +275,7 @@ public class Car : Vehicle
 
     // Detects contact between the car and fuel objects
     // Author: Sonas
-    void OnTriggerEnter2D(Collider2D other)
+    IEnumerator OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Fuel"))
         {
@@ -295,6 +295,10 @@ public class Car : Vehicle
 
           other.gameObject.SetActive(false);
         }
+
+        yield return new WaitForSeconds(5);
+
+        other.gameObject.SetActive(true);
     }
 
 

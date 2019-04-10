@@ -11,22 +11,38 @@ public class HUDManager : MonoBehaviour
     public Image[] hearts;
     private int healthPerHeart =4;
     private Car car;
+    public Text scoreText;
 
     void Start()
     {
         car = GameObject.FindWithTag("Car").GetComponent<Car>();
     }
+
     void Update()
     {
         fuelBarDisplay(car.FuelCount);
         heartDisplay(car.Lives);
+        scoreDisplay(car.Score);
+
+        
     }
-    public void fuelBarDisplay(float currentFuel){
+
+    public void fuelBarDisplay(float currentFuel)
+    {
         float currentFuelPercentage;
         currentFuelPercentage = currentFuel / (maxFuel - minFuel);
         fuelBar.fillAmount = currentFuelPercentage;
     }
-    void heartDisplay(float life){
+
+    void scoreDisplay(float score)
+    {
+      int s = (int)score;
+
+      scoreText.text = "Score: " + s;
+    }
+
+    void heartDisplay(float life)
+    {
         int health = (int)life;
         int heart = health / healthPerHeart;
         int heartFill = health % healthPerHeart;
