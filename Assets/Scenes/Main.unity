@@ -1174,7 +1174,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -6.26398, y: 3.9225774}
+  - {x: -5.5912466, y: 2.7937531}
+  - {x: -6.4858913, y: 3.938336}
   - {x: -6.5944414, y: 4.897487}
   - {x: -6.8081245, y: 6.943463}
   - {x: -6.540534, y: 8.786507}
@@ -1191,11 +1192,14 @@ EdgeCollider2D:
   - {x: 14.028442, y: 19.224813}
   - {x: 15.627449, y: 18.855856}
   - {x: 17.431221, y: 18.17488}
-  - {x: 19.789726, y: 16.384224}
-  - {x: 20.782057, y: 14.7963705}
-  - {x: 21.544662, y: 12.74796}
-  - {x: 21.935623, y: 11.739931}
+  - {x: 19.330416, y: 16.255575}
+  - {x: 20.488098, y: 14.741236}
+  - {x: 21.324194, y: 12.858231}
+  - {x: 21.67841, y: 11.703175}
+  - {x: 22.146664, y: 10.560219}
+  - {x: 22.228512, y: 10.480665}
   - {x: 22.210138, y: 10.149854}
+  - {x: 22.329462, y: 10.178247}
   - {x: 22.667171, y: 8.805281}
   - {x: 22.936821, y: 7.14011}
   - {x: 23.516558, y: 5.040743}
@@ -1221,7 +1225,8 @@ EdgeCollider2D:
   - {x: -5.2808943, y: 0.21816519}
   - {x: -5.6312313, y: 2.125679}
   - {x: -6.125637, y: 3.0632021}
-  - {x: -6.2701187, y: 3.9367356}
+  - {x: -6.2675962, y: 4.1985}
+  - {x: -4.8812504, y: 5.282641}
 --- !u!68 &664821085
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -1239,6 +1244,7 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -7.422312, y: 1.5631026}
+  - {x: -7.365299, y: 1.4967685}
   - {x: -7.8598804, y: 5.0537887}
   - {x: -8.019448, y: 7.4590874}
   - {x: -7.6951427, y: 9.846819}
@@ -1287,7 +1293,7 @@ EdgeCollider2D:
   - {x: -6.023655, y: -0.69658685}
   - {x: -6.1273804, y: -0.19355452}
   - {x: -6.868329, y: 0.96853256}
-  - {x: -7.428458, y: 1.5812186}
+  - {x: -7.543105, y: 1.8602848}
 --- !u!4 &668730325 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8072341745965047117, guid: 07d8d2ecbf18248ae88c74abb8d1853c,
@@ -1462,7 +1468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &923322622
 Transform:
   m_ObjectHideFlags: 0
@@ -1541,7 +1547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &984594461
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1683,7 +1689,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1061563163}
   - component: {fileID: 1061563162}
-  - component: {fileID: 1061563164}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: PlayerController
@@ -1704,7 +1709,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carGameObject: {fileID: 140407060}
-  test: {fileID: 0}
 --- !u!4 &1061563163
 Transform:
   m_ObjectHideFlags: 0
@@ -1719,19 +1723,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1061563164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061563161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95471eb2848344097b7289f5e4180aac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!1 &1181036568
 GameObject:
   m_ObjectHideFlags: 0

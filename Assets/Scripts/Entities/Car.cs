@@ -219,10 +219,10 @@ public class Car : Vehicle
     {
         // If there is acceleration, decrease fuel
         if (Acceleration > 0)
-            FuelCount -= 0.01f * Acceleration;
+            FuelCount -= 0.001f * Acceleration;
 
         else
-            FuelCount -= 0.01f * Acceleration * -1;
+            FuelCount -= 0.001f * Acceleration * -1;
     }
 
 
@@ -231,10 +231,10 @@ public class Car : Vehicle
     public override void UpdateScore()
     {
       if (AccForward == true)
-          Score += 0.01f * Acceleration;
+          Score += 0.001f * Acceleration;
 
       if (AccBackward == true)
-          Score += 0.01f * Acceleration * -1;
+          Score += 0.001f * Acceleration * -1;
     }
 
 
@@ -279,11 +279,11 @@ public class Car : Vehicle
     {
         if (other.gameObject.CompareTag("Fuel"))
         {
-          if(this.FuelCount > 95)
+          if(this.FuelCount > 90)
             this.FuelCount += (100 - this.FuelCount);
 
           else
-            this.FuelCount += 5;
+            this.FuelCount += 10;
 
           other.gameObject.SetActive(false);
         }

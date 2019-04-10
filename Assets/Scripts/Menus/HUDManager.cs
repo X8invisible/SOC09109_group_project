@@ -22,7 +22,7 @@ public class HUDManager : MonoBehaviour
     {
         fuelBarDisplay(car.FuelCount);
         heartDisplay(car.Lives);
-        scoreDisplay(car.Score);
+        scoreDisplay(car.Acceleration);
 
         
     }

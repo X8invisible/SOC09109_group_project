@@ -5,9 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     // For accessing the car game object so we can access it's components through the car script
     public GameObject carGameObject;
-
-    // a script that is for testing purposes
-    public runPythonScript test;
+    
 
     // The car script that changes the car game object
     private Car car;
@@ -17,7 +15,6 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("------START-------");
         car = carGameObject.GetComponent<Car>();
-        test = new runPythonScript();
     }
 
     // This is called once per frame
@@ -78,14 +75,6 @@ public class PlayerController : MonoBehaviour
         {
             // if no button pressed, stop car
             car.BrakeSlowly();
-        }
-
-        //TESTING PURPOSES (DARWON PART)
-
-        //Testing style transfer script
-        if (Input.GetKey(KeyCode.P))
-        {
-            test.runPythonStyleTransfer();
         }
     }
 
