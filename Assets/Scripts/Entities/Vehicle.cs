@@ -8,12 +8,13 @@ public abstract class Vehicle : MonoBehaviour
     public float Brakes { get; set; }
     public float Acceleration { get; set; }
     public float Steer { get; set; }
-    public bool AccelFwd { get; set; }
-    public bool AccelBwd { get; set; }
     public float Lives { get; set; }
     public float FuelCount { get; set; }
     public float Score { get; set; }
     public float EngineHeat { get; set; }
+    public bool AccelFwd { get; set; }
+    public bool AccelBwd { get; set; }
+    public bool Immunity { get; set; }
 
 
     public abstract void Accelerate(int Direction);
@@ -31,6 +32,8 @@ public abstract class Vehicle : MonoBehaviour
 
     // stop car from moving
     public abstract void StopCarMotion();
+
+    public abstract void EndGame();
 
     // when the car collides with something
     public abstract void Collision();

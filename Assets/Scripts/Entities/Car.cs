@@ -11,17 +11,16 @@ public class Car : Vehicle
 
     void Start()
     {
-        Debug.Log("Car start");
-
         this.MaxSpeed = 7.0f;
         this.MaxSteer = 2.0f;
         this.Brakes = 0.2f;
         this.Acceleration = 0.0f;
         this.Steer = 0.0f;
-        this.FuelCount = 100.0f;
+        this.FuelCount = 300.0f;
         this.Lives = 20.0f;
         this.Score = 0.0f;
         this.EngineHeat = 0.0f;
+        this.Immunity = false;
     }
 
 
@@ -29,7 +28,12 @@ public class Car : Vehicle
     public override void Accelerate(int Direction)
     {
         if (CheckFuel() == false || CheckLives() == false)
+        {
+          this.Acceleration = 0;
+          EndGame();
           return;
+        }
+
 
         if (Direction == 1)
         {
@@ -92,12 +96,14 @@ public class Car : Vehicle
                     transform.Rotate(Vector3.forward * Steer);
                     Left = false;
                 }
+
                 if (Right)
                 {
                     transform.Rotate(Vector3.back * Steer);
                     Right = false;
                 }
             }
+
             else
                 AccForward = false;
         }
@@ -120,6 +126,7 @@ public class Car : Vehicle
                     Right = false;
                 }
             }
+
             else
                 AccBackward = false;
         }
@@ -177,21 +184,41 @@ public class Car : Vehicle
     }
 
 
+    public override void EndGame()
+    {
+      Application.Quit();
+    }
+
+
     // When the car collides with an object and it loses lives
     public override void Collision()
     {
+      if (this.Immunity == true)
+        return;
+
       if (AccForward == true)
-        this.Lives -= (float)(Math.Round((Acceleration) / 2, MidpointRounding.AwayFromZero) / 2) * 2;
+        this.Lives -= (float)(Math.Round((Acceleration) / 2, MidpointRounding.AwayFromZero) / 2);
 
       if (AccBackward == true)
-        this.Lives -= (float)((Math.Round((Acceleration) / 2, MidpointRounding.AwayFromZero) / 2) * -1) * 2;
+        this.Lives -= (float)((Math.Round((Acceleration) / 2, MidpointRounding.AwayFromZero) / 2) * -1);
 
-      this.Acceleration = 0.0f;
+        this.Acceleration -= 1.0f;
 
       if (this.Lives < 0)
         this.Lives = 0;
+
+      StartCoroutine(ImmunityCounter(3));
     }
 
+    // makes the car immune for a specified number of seconds
+    IEnumerator ImmunityCounter(int seconds)
+    {
+      this.Immunity = true;
+
+      yield return new WaitForSeconds(seconds);
+
+      this.Immunity = false;
+    }
 
     // Checks if the player is dead
     public override bool CheckLives()
@@ -217,12 +244,12 @@ public class Car : Vehicle
     // Author: Sonas
     public void UpdateFuelCount()
     {
-        // If there is acceleration, decrease fuel
-        if (Acceleration > 0)
-            FuelCount -= 0.01f * Acceleration;
+      // If there is acceleration, decrease fuel
+      if (Acceleration > 0)
+          FuelCount -= 0.005f * Acceleration;
 
-        else
-            FuelCount -= 0.01f * Acceleration * -1;
+      else
+          FuelCount -= 0.005f * Acceleration * -1;
     }
 
 
@@ -260,16 +287,12 @@ public class Car : Vehicle
           this.Acceleration = 5;
 
         this.MaxSpeed = 5.0f;
-
-        Debug.Log("Engine is over heating");
       }
 
       else if (this.MaxSpeed < 7 && this.EngineHeat < 300)
       {
         this.MaxSpeed = 7.0f;
       }
-
-      Debug.Log("Engine heat is " + EngineHeat);
     }
 
 
@@ -279,11 +302,11 @@ public class Car : Vehicle
     {
         if (other.gameObject.CompareTag("Fuel"))
         {
-          if(this.FuelCount > 95)
+          if(this.FuelCount > 85)
             this.FuelCount += (100 - this.FuelCount);
 
           else
-            this.FuelCount += 5;
+            this.FuelCount += 15;
 
           other.gameObject.SetActive(false);
         }
@@ -304,8 +327,7 @@ public class Car : Vehicle
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-      if (col.gameObject.CompareTag("Obstacle"))
-          this.Collision();
+      if (col.gameObject.CompareTag("Obstacle") || col.gameObject.CompareTag("NPC"))
+        this.Collision();
     }
-
 }

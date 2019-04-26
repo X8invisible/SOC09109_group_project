@@ -1390,6 +1390,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1410443555}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &821443781 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5882425204155550162, guid: c12258284cb1f4c24b6fe02a689bf419,
+    type: 3}
+  m_PrefabInstance: {fileID: 1410443555}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &821443783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2355,12 +2361,12 @@ PrefabInstance:
     - target: {fileID: 5882425204155550162, guid: c12258284cb1f4c24b6fe02a689bf419,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.58
+      value: -8.87
       objectReference: {fileID: 0}
     - target: {fileID: 5882425204155550162, guid: c12258284cb1f4c24b6fe02a689bf419,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.58
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5882425204155550162, guid: c12258284cb1f4c24b6fe02a689bf419,
         type: 3}
@@ -4101,6 +4107,10 @@ PrefabInstance:
       propertyPath: offset.y
       value: -0.14
       objectReference: {fileID: 0}
+    - target: {fileID: 140407061, guid: 1bc4437f702f70f4e8b007c945e25462, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 821443781}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bc4437f702f70f4e8b007c945e25462, type: 3}
 --- !u!1001 &5987997298972464808
