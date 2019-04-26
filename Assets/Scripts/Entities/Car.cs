@@ -186,7 +186,7 @@ public class Car : Vehicle
 
     public override void EndGame()
     {
-      Application.Quit();
+      //Application.Quit();
     }
 
 
