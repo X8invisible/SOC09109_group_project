@@ -231,10 +231,10 @@ public class Car : Vehicle
     public override void UpdateScore()
     {
       if (AccForward == true)
-          Score += 0.001f * Acceleration;
+          Score += 0.01f * Acceleration;
 
       if (AccBackward == true)
-          Score += 0.001f * Acceleration * -1;
+          Score += 0.01f * Acceleration * -1;
     }
 
 

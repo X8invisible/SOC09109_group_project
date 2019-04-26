@@ -54,8 +54,8 @@ public class PauseManager : MonoBehaviour
 	public void BackgroundClick()
 {
 	Debug.Log("----background menu----");
-	optionsPanel.SetActive(!panelState);
-	backgroundPanel.SetActive(panelState);
+	optionsPanel.SetActive(panelState);
+	backgroundPanel.SetActive(!panelState);
 	panelState = !panelState;
 }
 	//will send you back to main menu
