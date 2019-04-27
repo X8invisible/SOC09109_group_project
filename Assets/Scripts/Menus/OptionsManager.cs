@@ -5,15 +5,22 @@ using UnityEngine.UI;
 
 public class OptionsManager : MonoBehaviour
 {
-    bool checkbox = true;
+    bool checkbox = false;
     public GameObject lights;
     public GameObject directional;
 
     public void OnValueChanged()
     {
-        Debug.Log(checkbox);
-        lights.SetActive(checkbox);
-        directional.SetActive(!checkbox);
         checkbox = !checkbox;
+        if(checkbox)
+        {
+            lights.GetComponent<Light>().intensity = 10.0f;
+            directional.GetComponent<Light>().intensity = 0.0f;
+
+        }else
+        {
+            lights.GetComponent<Light>().intensity = 0.0f;
+            directional.GetComponent<Light>().intensity = 1.0f;
+        }
     }
 }

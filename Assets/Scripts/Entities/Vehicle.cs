@@ -33,8 +33,6 @@ public abstract class Vehicle : MonoBehaviour
     // stop car from moving
     public abstract void StopCarMotion();
 
-    public abstract void EndGame();
-
     // when the car collides with something
     public abstract void Collision();
 

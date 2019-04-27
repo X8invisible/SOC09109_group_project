@@ -34,6 +34,9 @@ public class PauseManager : MonoBehaviour
 	{
 		Debug.Log("----pause menu----");
 		pauseMenuUI.SetActive(false);
+		optionsPanel.SetActive(false);
+		backgroundPanel.SetActive(false);
+		panelState = true;
 		Time.timeScale = 1f;
 		gameIsPaused = false;
 	}

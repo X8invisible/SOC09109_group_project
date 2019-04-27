@@ -16,7 +16,7 @@ public class Car : Vehicle
         this.Brakes = 0.2f;
         this.Acceleration = 0.0f;
         this.Steer = 0.0f;
-        this.FuelCount = 300.0f;
+        this.FuelCount = 100.0f;
         this.Lives = 20.0f;
         this.Score = 0.0f;
         this.EngineHeat = 0.0f;
@@ -30,8 +30,6 @@ public class Car : Vehicle
         if (CheckFuel() == false || CheckLives() == false)
         {
           this.Acceleration = 0;
-          EndGame();
-          return;
         }
 
 
@@ -182,14 +180,6 @@ public class Car : Vehicle
         else if (AccBackward)
             StopAcc(-1, this.Brakes); // while moving backwards
     }
-
-
-    public override void EndGame()
-    {
-      //Application.Quit();
-    }
-
-
     // When the car collides with an object and it loses lives
     public override void Collision()
     {
@@ -246,10 +236,10 @@ public class Car : Vehicle
     {
         // If there is acceleration, decrease fuel
         if (Acceleration > 0)
-            FuelCount -= 0.001f * Acceleration;
+            FuelCount -= 0.01f * Acceleration;
 
         else
-            FuelCount -= 0.001f * Acceleration * -1;
+            FuelCount -= 0.01f * Acceleration * -1;
     }
 
 
@@ -302,11 +292,11 @@ public class Car : Vehicle
     {
         if (other.gameObject.CompareTag("Fuel"))
         {
-          if(this.FuelCount > 85)
+          if(this.FuelCount > 95)
             this.FuelCount += (100 - this.FuelCount);
 
           else
-            this.FuelCount += 15;
+            this.FuelCount += 5;
 
           other.gameObject.SetActive(false);
         }
@@ -319,7 +309,7 @@ public class Car : Vehicle
           other.gameObject.SetActive(false);
         }
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(15);
 
         other.gameObject.SetActive(true);
     }

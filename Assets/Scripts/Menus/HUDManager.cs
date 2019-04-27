@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HUDManager : MonoBehaviour
 {
@@ -12,7 +13,9 @@ public class HUDManager : MonoBehaviour
     private int healthPerHeart =4;
     private Car car;
     public Text scoreText;
-
+    public Text gameOverScore;
+    public GameObject gameOverPanel;
+    private bool over = false;
     void Start()
     {
         car = GameObject.FindWithTag("Car").GetComponent<Car>();
@@ -24,6 +27,11 @@ public class HUDManager : MonoBehaviour
         heartDisplay(car.Lives);
         scoreDisplay(car.Score);
 
+        if((car.FuelCount <= 0 || car.Lives <= 0)&& !over)
+            {
+                gameOver(car.Score);
+                over = true;
+            }
         
     }
 
@@ -34,6 +42,13 @@ public class HUDManager : MonoBehaviour
         fuelBar.fillAmount = currentFuelPercentage;
     }
 
+    void gameOver(float score)
+    {
+        gameOverPanel.SetActive(true);
+		Time.timeScale = 0f;
+        int s = (int)score;
+        gameOverScore.text = "Final Score: " + s;
+    }
     void scoreDisplay(float score)
     {
       int s = (int)score;
@@ -70,5 +85,16 @@ public class HUDManager : MonoBehaviour
         hearts[heart].fillAmount = heartFill /(float)healthPerHeart;
 
     }
-
+    public void LoadMenu()
+	{
+		Time.timeScale = 1f;
+        over = false;
+		SceneManager.LoadScene("MainMenu");
+	}
+    public void ReloadGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        over = false;
+    }
 }
