@@ -309,7 +309,7 @@ public class Car : Vehicle
           other.gameObject.SetActive(false);
         }
 
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(12);
 
         other.gameObject.SetActive(true);
     }

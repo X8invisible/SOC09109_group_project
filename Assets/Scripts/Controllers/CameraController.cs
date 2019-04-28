@@ -6,7 +6,8 @@ public class CameraController : MonoBehaviour
 {
     //PUBLIC VARIABLES - appear in unity and can drag and drop objects into them
     public GameObject Car;
-
+    public Vector3 minCameraPos;
+    public Vector3 maxCameraPos;
     //PRIVATE VARIABLES
     private Vector3 offset;
 
@@ -24,5 +25,10 @@ public class CameraController : MonoBehaviour
     {
         // as player is moved, camera is also moved without spinning
         transform.position = Car.transform.position + offset;
+        
+        //this is in order to not see the edge of the map
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, minCameraPos.x, maxCameraPos.x),
+            Mathf.Clamp(transform.position.y, minCameraPos.y, maxCameraPos.y),
+            Mathf.Clamp(transform.position.z, minCameraPos.z, maxCameraPos.z));
     }
 }

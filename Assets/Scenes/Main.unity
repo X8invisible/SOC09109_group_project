@@ -1070,6 +1070,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Car: {fileID: 140407060}
+  minCameraPos: {x: -12.25, y: -21, z: -10}
+  maxCameraPos: {x: 20.4, y: 20, z: -10}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1194,7 +1196,7 @@ SpriteRenderer:
   m_SortingLayerID: -558680639
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: aff2097b23c872e4c9ebfa6f7a2ca34d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cc21b34725c353f4c9607cc94a555dac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
